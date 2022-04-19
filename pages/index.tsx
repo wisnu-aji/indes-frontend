@@ -93,6 +93,7 @@ const Home: NextPage = () => {
                   "https://api.wisnuaji.my.id/api/v1/bayar/" + pelanggan._id
                 }
                 target="_blank"
+                rel="noreferrer"
               >
                 <button>bayar</button>
               </a>
