@@ -62,7 +62,7 @@ const Home: NextPage = () => {
       );
       const data = await respon.json();
       console.log(data.Data.SessionID);
-      window.open(data.Data.Url);
+      open(data.Data.Url);
     }
   };
   return (
