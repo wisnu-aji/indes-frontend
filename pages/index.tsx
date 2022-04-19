@@ -46,7 +46,9 @@ const Home: NextPage = () => {
   const [input, setInput] = useState<string>("");
   const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
   const cari = async () => {
-    const respon = await fetch("http://localhost:3000/api/v1/search/" + input);
+    const respon = await fetch(
+      "https://api.wisnuaji.my.id/api/v1/search/" + input
+    );
 
     const hasil = await respon.json();
     if (!hasil.message) {
@@ -56,7 +58,7 @@ const Home: NextPage = () => {
   const bayar = async () => {
     if (pelanggan) {
       const respon = await fetch(
-        "http://localhost:3000/api/v1/bayar/" + pelanggan._id
+        "https://api.wisnuaji.my.id/api/v1/bayar/" + pelanggan._id
       );
       const data = await respon.json();
       console.log(data.Data.SessionID);
