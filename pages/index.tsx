@@ -45,6 +45,7 @@ export interface IklanType {
 const Home: NextPage = () => {
   const [input, setInput] = useState<string>("");
   const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
+
   const cari = async () => {
     const respon = await fetch(
       "https://api.wisnuaji.my.id/api/v1/search/" + input
@@ -55,16 +56,7 @@ const Home: NextPage = () => {
       setPelanggan(hasil as PelangganType);
     }
   };
-  const bayar = async () => {
-    if (pelanggan) {
-      const respon = await fetch(
-        "https://api.wisnuaji.my.id/api/v1/bayar/" + pelanggan._id
-      );
-      const data = await respon.json();
-      console.log(data.Data.SessionID);
-      open(data.Data.Url);
-    }
-  };
+
   return (
     <div className={style.container}>
       <Head>
@@ -96,7 +88,14 @@ const Home: NextPage = () => {
           {pelanggan && (
             <div>
               <div>{JSON.stringify(pelanggan, null, 4)}</div>
-              <button onClick={bayar}>bayar</button>
+              <a
+                href={
+                  "https://api.wisnuaji.my.id/api/v1/bayar/" + pelanggan._id
+                }
+                target="_blank"
+              >
+                <button>bayar</button>
+              </a>
             </div>
           )}
         </section>
