@@ -15,11 +15,13 @@ export const Iklan: FC = () => {
 
   return (
     <div className={style.iklan}>
-      {data.map((iklan) => {
+      {data.map((iklan, i) => {
         const hariIni = new Date();
         const expired = new Date(iklan.expired);
         if (hariIni.getTime() > expired.getTime()) return null;
-        return <img className={style.gambar} src={iklan.gambar} />;
+        return (
+          <img key={"iklan" + i} className={style.gambar} src={iklan.gambar} />
+        );
       })}
     </div>
   );
