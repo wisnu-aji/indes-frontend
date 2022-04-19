@@ -1,12 +1,68 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Iklan } from "../components/Iklan";
 import Ombak from "../components/Ombak";
 import OmbakFooter from "../components/OmbakFooter";
 import style from "../styles/Home.module.css";
 
+export interface AdminType {
+  _id: number;
+  email: string;
+  nama: string;
+}
+
+export interface PaketType {
+  _id: number;
+  kecepatan: string;
+  harga: number;
+}
+export interface RiwayatPembayaran {
+  tanggal: Date;
+  jumlahPembayaran: number;
+}
+
+export interface PelangganType {
+  _id: number;
+  nama: string;
+  alamat: string;
+  telepon: number;
+  paket: number;
+  pemasangan: Date;
+  batasPembayaran: Date;
+  riwayatPembayaran: RiwayatPembayaran[];
+}
+
+export type User = Omit<PelangganType, "_id">;
+export interface IklanType {
+  _id: number;
+  nama_iklan: string;
+  expired: Date;
+  gambar: string;
+}
+
 const Home: NextPage = () => {
+  const [input, setInput] = useState<string>("");
+  const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
+  const cari = async () => {
+    const respon = await fetch("http://localhost:3000/api/v1/search/" + input);
+
+    const hasil = await respon.json();
+    if (!hasil.message) {
+      setPelanggan(hasil as PelangganType);
+    }
+  };
+  const bayar = async () => {
+    if (pelanggan) {
+      const respon = await fetch(
+        "http://localhost:3000/api/v1/bayar/" + pelanggan._id
+      );
+      const data = await respon.json();
+      console.log(data.Data.SessionID);
+      window.open(data.Data.Url);
+    }
+  };
   return (
     <div className={style.container}>
       <Head>
@@ -30,7 +86,17 @@ const Home: NextPage = () => {
           <input
             type="search"
             placeholder="silahkan masukkan id atau no telp"
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
           />
+          <button onClick={cari}>Cari</button>
+          {pelanggan && (
+            <div>
+              <div>{JSON.stringify(pelanggan, null, 4)}</div>
+              <button onClick={bayar}>bayar</button>
+            </div>
+          )}
         </section>
         {/* akhir inputan id */}
         {/* --------------------------- */}
