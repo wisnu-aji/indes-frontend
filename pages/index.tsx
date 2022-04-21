@@ -67,7 +67,7 @@ const Home: NextPage = () => {
       {/* bagian atas */}
       <header className={style.header}>
         <div className={style.logo}>
-          <Image src="/logo indes.png" width={60} height={60} />
+          <Image src="/logo.png" width={60} height={60} />
         </div>
         <h1>Cek Tagihan Pembayaran</h1>
       </header>
