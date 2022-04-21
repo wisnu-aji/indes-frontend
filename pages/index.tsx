@@ -79,15 +79,36 @@ const Home: NextPage = () => {
         <section className={style.input}>
           <input
             type="search"
-            placeholder="silahkan masukkan id atau no telp"
+            placeholder="masukkan id atau no telp"
             onChange={(e) => {
               setInput(e.target.value);
             }}
           />
           <button onClick={cari}>Cari</button>
-          {pelanggan && (
-            <div>
-              <div>{JSON.stringify(pelanggan, null, 4)}</div>
+        </section>
+        {pelanggan && (
+          <div className={style.pelanggan}>
+            <div className={style.pelanggan_info}>
+              <div className={style.pelanggan_info_header}>Data Pelanggan</div>
+              <div className={style.pelanggan_info_pemasangan}>
+                <h3>nama</h3>
+                <h2>{pelanggan.nama}</h2>
+                <h3>tanggal pemasangan</h3>
+                <h2>{new Date(pelanggan.pemasangan).toLocaleDateString()}</h2>
+              </div>
+            </div>
+
+            <div className={style.pelanggan_waktubayar}>
+              <h3>Tanggal Pembayaran</h3>
+              <div className={style.pelanggan_waktubayar_batas}>
+                {new Date(pelanggan.batasPembayaran).toLocaleDateString()}
+              </div>
+              <h3>Tipe langganan</h3>
+              <div className={style.pelanggan_waktubayar_paket}>
+                paket {pelanggan.paket}
+              </div>
+            </div>
+            <div className={style.pelanggan_tombolbayar}>
               <a
                 href={
                   "https://api.wisnuaji.my.id/api/v1/bayar/" + pelanggan._id
@@ -95,11 +116,13 @@ const Home: NextPage = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <button>bayar</button>
+                <button className={style.pelanggan_tombolbayar_bayar}>
+                  bayar
+                </button>
               </a>
             </div>
-          )}
-        </section>
+          </div>
+        )}
         {/* akhir inputan id */}
         {/* --------------------------- */}
         {/* awal iklan */}

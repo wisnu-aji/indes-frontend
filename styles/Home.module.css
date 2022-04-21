@@ -1,11 +1,10 @@
 .container {
-
   min-height: 100vh;
   background-color: rgb(235, 235, 235);
+  text-transform: capitalize;
 }
 
 .header {
-  
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -14,43 +13,113 @@
   padding: 0 20px;
   margin-bottom: -20px;
 }
-.logo{
-
+.logo {
 }
-.header > h1{
-  
-  
+.header > h1 {
 }
-.input{
-  
+.input {
   padding: 10px 20px;
+  display: flex;
+  gap: 5px;
 }
-.input > input{
+.input > button {
+  filter: drop-shadow(0 0 0.75rem #4fb7ff);
+  border-radius: 6px;
+  font-weight: bold;
+}
+.input > input {
   width: 100%;
-  padding: 2px 6px;
-  font-size: medium;
+  padding: 4px 12px;
+  font-size: large;
+  border: none;
   border-radius: 6px;
   filter: drop-shadow(0 0 0.75rem #4fb7ff);
 }
 .iklan {
- 
- display: flex;
- flex-direction: column;
- width: 100%;
- height: 100%;
- padding: 4px;
- margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  margin-top: 20px;
 }
 .gambar {
   margin-top: 5px;
-  
 }
 
- .content {
+.content {
   background-color: #a2d9ff;
 }
 
 .container > footer {
   background-color: #87bee3;
 }
-
+.pelanggan {
+  margin: 12px 24px;
+}
+.pelanggan_info {
+  background-color: #87bee3;
+  padding: 12px;
+  border-radius: 6px;
+}
+.pelanggan_info_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.pelanggan_info_pemasangan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pelanggan_info_pemasangan > h3 {
+  margin: 0;
+  font-size: medium;
+  font-weight: 400;
+}
+.pelanggan_info_pemasangan > h2 {
+  margin: 0;
+}
+.pelanggan_waktubayar {
+  padding: 0 12px;
+  padding-bottom: 12px;
+}
+.pelanggan_waktubayar > h3 {
+  margin: 0;
+  margin-top: 12px;
+  font-size: small;
+}
+.pelanggan_waktubayar_batas {
+  width: fit-content;
+  padding: 6px 12px;
+  margin-top: 3px;
+  background-color: red;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+}
+.pelanggan_waktubayar_paket {
+  width: fit-content;
+  padding: 6px 12px;
+  margin-top: 3px;
+  background-color: rgb(170, 136, 224);
+  border-radius: 6px;
+  color: black;
+  font-weight: bold;
+}
+.pelanggan_tombolbayar {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+button.pelanggan_tombolbayar_bayar {
+  padding: 6px 16px;
+  border-radius: 6px;
+  filter: drop-shadow(0 0 0.1rem);
+  font-size: large;
+  font-weight: 600;
+}
