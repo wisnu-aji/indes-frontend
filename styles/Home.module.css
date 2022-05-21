@@ -123,3 +123,8 @@ button.pelanggan_tombolbayar_bayar {
   font-size: large;
   font-weight: 600;
 }
+.notfound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

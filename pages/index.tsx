@@ -45,8 +45,10 @@ export interface IklanType {
 const Home: NextPage = () => {
   const [input, setInput] = useState<string>("");
   const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
+  const [tidakDitemukan, setTidakDitemukan] = useState<boolean>(false);
 
   const cari = async () => {
+    setTidakDitemukan(false);
     const respon = await fetch(
       "https://api.wisnuaji.my.id/api/v1/search/" + input
     );
@@ -54,6 +56,9 @@ const Home: NextPage = () => {
     const hasil = await respon.json();
     if (!hasil.message) {
       setPelanggan(hasil as PelangganType);
+    } else {
+      setPelanggan(null);
+      setTidakDitemukan(true);
     }
   };
 
@@ -67,7 +72,7 @@ const Home: NextPage = () => {
       {/* bagian atas */}
       <header className={style.header}>
         <div className={style.logo}>
-          <Image src="/logo.png" width={60} height={60} />
+          <Image src="/logo.png" width={60} height={60} alt="logo" />
         </div>
         <h1>Cek Tagihan Pembayaran</h1>
       </header>
@@ -82,6 +87,11 @@ const Home: NextPage = () => {
             placeholder="masukkan id atau no telp"
             onChange={(e) => {
               setInput(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                cari();
+              }
             }}
           />
           <button onClick={cari}>Cari</button>
@@ -122,6 +132,9 @@ const Home: NextPage = () => {
               </a>
             </div>
           </div>
+        )}
+        {tidakDitemukan && (
+          <div className={style.notfound}>pelanggan tidak ditemukan</div>
         )}
         {/* akhir inputan id */}
         {/* --------------------------- */}
