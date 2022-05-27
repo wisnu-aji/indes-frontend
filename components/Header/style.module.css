@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  background-color: #a2d9ff;
+  justify-content: space-between;
+  padding: 5px 20px;
+  align-items: center;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 1px 8px 4px -4px rgba(0,0,0,0.28);
+}
+
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}

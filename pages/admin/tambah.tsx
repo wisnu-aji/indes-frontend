@@ -1,7 +1,8 @@
 import React from "react";
+import { AdminLayout } from "../../layout";
 
 function tambah() {
-  return <div>tambah</div>;
+  return <AdminLayout>tambah</AdminLayout>;
 }
 
 export default tambah;
