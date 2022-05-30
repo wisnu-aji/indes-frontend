@@ -54,7 +54,7 @@
 
 @media only screen and (max-width: 600px) {
   .hide {
-    transform: translateX(-100%);
+    transform: translateX(-101%);
     transition: transform 1s;
   }
   .container {
@@ -65,11 +65,14 @@
     top: 60px;
     background-color: #fff;
     transition: transform 1s;
-    /* transform: translateX(-100%); */
+    /* create box shadow */
+    box-shadow: 3px 1px 5px 0 rgba(0,0,0,0.38);
+    padding-top: 20px;
+    
   }
   .buttonToShow {
+    box-shadow: 3px 1px 5px 0 rgba(0,0,0,0.58);
     visibility: visible;
-    border: 1px solid red;
     position: absolute;
     padding: 5px;
     width: 30px;
@@ -79,7 +82,7 @@
     right: 1px;
     transform: translateX(100%);
     border: 1px solid rgb(155, 155, 155);
-    border-left: none;
+    border-left: 1px solid #fff;
     background-color: #fff;
     border-radius: 0 100% 100% 0;
 

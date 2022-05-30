@@ -64,7 +64,7 @@ export const SideBar: FC = () => {
   }
 
   useEffect(() => {
-    if (sideBar.current && show) {
+    if (sideBar.current) {
       if (sideBar.current) {
         setShow(false)
         sideBar.current.classList.add(style.hide)
