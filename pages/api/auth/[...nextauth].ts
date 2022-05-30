@@ -8,15 +8,21 @@ export default NextAuth({
   callbacks: {
     async signIn({ user }) {
       if (user.email) {
-        const isExist = await prisma.admin.findFirst({
+        const isExist = await prisma.adminUtama.findFirst({
           where: { email: user.email },
         })
+        console.log(isExist)
         if (isExist) return true
+        const isExist2 = await prisma.admin.findFirst({
+          where: { email: user.email },
+        })
+        if (isExist2) return true
       }
       return "/admin?error=true"
     },
     async jwt({ token }) {
       if (token.email && !token.role) {
+        console.log("jwt")
         const isAdminUtama = await prisma.adminUtama.findFirst({
           where: { email: token.email },
         })
@@ -37,12 +43,11 @@ export default NextAuth({
       return token
     },
     async session({ session, user, token }) {
-      // console.log(session)
-
       if (token?.role && token?.name) {
         session.role = token.role
         session.user!.name = token?.name
       }
+      console.log(session)
 
       return session
     },
