@@ -9,7 +9,7 @@ import {
 import React, { FC, useState } from "react"
 import style from "./style.module.css"
 
-interface SessionWithRole extends Session {
+export interface SessionWithRole extends Session {
   role: "admin" | "admin-utama"
 }
 
