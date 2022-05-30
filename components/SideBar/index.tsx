@@ -64,13 +64,13 @@ export const SideBar: FC = () => {
   }
 
   useEffect(() => {
-    if (sideBar.current) {
+    if (sideBar.current && show) {
       if (sideBar.current) {
         setShow(false)
         sideBar.current.classList.add(style.hide)
       }
     }
-  }, [])
+  }, [show])
   if (session.status === "loading" || session.status === "unauthenticated")
     return <></>
   const option = data.role === "admin-utama" ? adminUtamaOption : adminOption
