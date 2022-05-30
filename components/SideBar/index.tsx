@@ -70,7 +70,8 @@ export const SideBar: FC = () => {
         sideBar.current.classList.add(style.hide)
       }
     }
-  }, [show])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   if (session.status === "loading" || session.status === "unauthenticated")
     return <></>
   const option = data.role === "admin-utama" ? adminUtamaOption : adminOption
