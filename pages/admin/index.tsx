@@ -1,10 +1,13 @@
-import { useSession, signOut, signIn } from "next-auth/react"
 import { FC } from "react"
+import { Statistics } from "../../components/Statistics"
 import { AdminLayout } from "../../layout"
-import { useRouter } from "next/router"
 
 const Admin: FC = () => {
-  return <AdminLayout>index</AdminLayout>
+  return (
+    <AdminLayout>
+      <Statistics />
+    </AdminLayout>
+  )
 }
 
 export default Admin

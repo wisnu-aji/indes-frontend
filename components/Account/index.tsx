@@ -3,11 +3,10 @@
 import { Session } from "next-auth"
 import { useSession, signIn, signOut } from "next-auth/react"
 import React, { FC, useState } from "react"
+import { SessionWithRole } from "../../typings/component"
 import style from "./style.module.css"
 
-export interface SessionWithRole extends Session {
-  role: "admin" | "admin-utama"
-}
+
 
 const Logout: FC = () => {
   return (

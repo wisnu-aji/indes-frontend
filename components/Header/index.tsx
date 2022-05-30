@@ -1,7 +1,8 @@
 import { useSession } from "next-auth/react"
 import Head from "next/head"
 import { FC } from "react"
-import { Account, SessionWithRole } from "../Account"
+import { SessionWithRole } from "../../typings/component"
+import { Account } from "../Account"
 import style from "./style.module.css"
 
 export const Header: FC = () => {

@@ -10,3 +10,15 @@
 
   padding: 0 20px;
 }
+
+.loggedIn {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.contentChildren {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
