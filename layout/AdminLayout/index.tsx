@@ -1,5 +1,6 @@
 import { signIn, useSession } from "next-auth/react"
 import { FC } from "react"
+import { BelumLogin } from "../../components/BelumLogin"
 import { Footer } from "../../components/Footer"
 import { Header } from "../../components/Header"
 import style from "./style.module.css"
@@ -14,7 +15,7 @@ export const AdminLayout: FC = ({ children }) => {
         {status === "authenticated"
           ? children
           : status === "unauthenticated"
-          ? "You must login"
+          ? <BelumLogin />
           : "Loading"}
       </div>
       <Footer />

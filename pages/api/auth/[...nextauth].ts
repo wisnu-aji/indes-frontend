@@ -1,26 +1,41 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth"
+import GoogleProvider from "next-auth/providers/google"
+import { prisma } from "../../../prisma/connection"
+
 
 export default NextAuth({
+  // adapter: PrismaAdapter(prisma),
+
   callbacks: {
-    async jwt({token, user, account, profile, isNewUser}) {
-      if (account?.accessToken) {
-        token.accessToken = account.accessToken
+    async signIn({ user }) {
+      if (user.email) {
+        const isExist = await prisma.admin.findFirst({ where: { email: user.email } })
+        if(isExist) return true
       }
-      if (user?.roles) {
-        token.roles = user.roles
+      return '/admin?error=true'
+    },
+    async jwt({ token }) {
+      
+
+      if(token.email && !token.role) {
+        const isAdmin = await prisma.admin.findFirst({ where: { email: token.email } })
+        if(isAdmin) {
+          token.role = 'admin'
+          token.name = isAdmin.name
+        }
       }
       return token
     },
-    async session({session, user, token}) {
-      if(token?.accessToken) {
-        session.accessToken = token.accessToken
+    async session({ session, user, token }) {
+      // console.log(session)
+      
+      if (token?.role && token?.name) {
+        session.role = token.role
+        session.user!.name = token?.name
       }
-      if (token?.roles) {
-        user.roles = token.roles
-      }
+      
       return session
-    }
+    },
   },
   providers: [
     GoogleProvider({
@@ -28,4 +43,4 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET!,
     }),
   ],
-});
+})

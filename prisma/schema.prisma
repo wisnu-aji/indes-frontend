@@ -1,0 +1,28 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB")
+  
+}
+
+generator client {
+  provider        = "prisma-client-js"
+}
+
+model Admin {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  email String
+  refresh_token String?  @db.String
+  access_token  String?  @db.String
+  expires_at    Int?
+
+}
+model AdminUtama {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  email String
+  refresh_token String?  @db.String
+  access_token  String?  @db.String
+  expires_at    Int?
+
+}

@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.login {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loginGreet {
+  font-size: larger;
+  font-weight: 500;
+  width: 300px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.errorLogin {
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    
+  }
+  .login {
+    align-items: center;
+    justify-content: center;
+  }
+  .loginGreet {
+    text-align: center;
+  }
+}
