@@ -9,14 +9,6 @@ const MenambahkanAdmin: FC = () => {
   const sesion = useSession()
   const data = sesion.data as SessionWithRole | null
 
-  if (sesion.status === "loading" || sesion.status === "unauthenticated") {
-    return (
-      <AdminLayout>
-        <></>
-      </AdminLayout>
-    )
-  }
-
   if (data && data.role !== "admin-utama") {
     return <Error statusCode={403} />
   }
