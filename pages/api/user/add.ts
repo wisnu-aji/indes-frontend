@@ -35,7 +35,7 @@ export default async function handler(
     })
     const result = await apiResponse.json()
     console.log(result)
-    if(!result.ok) throw new Error(result.message)
+    if(result.message) throw new Error(result.message)
     res.status(200).json(result)
   } catch (e: unknown) {
     const error = e as Error
