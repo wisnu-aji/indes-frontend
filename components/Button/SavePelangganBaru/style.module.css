@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+
+.btn {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 900;
+  transform: translate(0, -6px);
+  border-radius: 3px;
+  background-color: rgb(0, 238, 71);
+  box-shadow: 4px 6px rgb(50, 50, 50, 0.4);
+  cursor: pointer;
+}
+
+.clear {
+  
+  background-color: rgb(255, 0, 43);
+}
+
+.btn:active {
+  box-shadow: 1px 3px rgb(50, 50, 50, 0.4);
+  transform: translate(3px, -3px);
+}
