@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  height: 100%;
+}
+.jumlah {
+  font-size: 3rem;
+  font-family: Caveat, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+.bayar {
+  
+  font-size: 2rem;
+  font-family: Caveat, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+
+.underline {
+  /* make underline that bold */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.green {
+  /* make underline color green */
+  color: rgb(0, 179, 0);
+
+}
+
+.blue {
+  color: rgb(0, 192, 192);
+}

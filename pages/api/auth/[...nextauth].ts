@@ -11,7 +11,6 @@ export default NextAuth({
         const isExist = await prisma.adminUtama.findFirst({
           where: { email: user.email },
         })
-        console.log(isExist)
         if (isExist) return true
         const isExist2 = await prisma.admin.findFirst({
           where: { email: user.email },
@@ -22,7 +21,6 @@ export default NextAuth({
     },
     async jwt({ token }) {
       if (token.email && !token.role) {
-        console.log("jwt")
         const isAdminUtama = await prisma.adminUtama.findFirst({
           where: { email: token.email },
         })
@@ -47,7 +45,6 @@ export default NextAuth({
         session.role = token.role
         session.user!.name = token?.name
       }
-      console.log(session)
 
       return session
     },

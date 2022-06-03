@@ -1,7 +1,6 @@
 import { FC } from "react"
 import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru"
 import { getToday } from "../../../lib/getToday"
-import { SavePelangganBaru } from "../../Button/SavePelangganBaru"
 import style from "./style.module.css"
 
 
