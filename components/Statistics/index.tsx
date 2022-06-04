@@ -35,7 +35,7 @@ export const Statistics: FC = () => {
   return (
     <div className={style.container}>
       <div>
-        <Image src={"/family.webp"} width={400} height={250} alt="keluarga" />
+        <Image src={"/family.webp"} width={400} height={250} alt="keluarga" className={style.keluarga} />
       </div>
       <div className={style.jumlah}>
         <span className={style.underline + " " + style.blue} onClick={go}>

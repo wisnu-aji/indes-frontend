@@ -33,3 +33,18 @@
 .blue {
   color: rgb(0, 192, 192);
 }
+
+
+@media only screen and (max-width: 600px) {
+  .jumlah {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .container {
+    height: 100%;
+  }
+  .bayar {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
