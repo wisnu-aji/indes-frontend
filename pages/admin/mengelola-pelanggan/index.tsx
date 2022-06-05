@@ -1,12 +1,18 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { AdminLayout } from "../../../layout"
-import { PelangganContext } from "../../../hooks/use-pelanggan-baru"
-import { PelangganBaru } from "../../../components/Form/PelangganBaru"
+import { SearchPelanggan } from "../../../components/Search/Pelanggan"
+import { TablePelanggan } from "../../../components/Table/Pelanggan"
+import { PelangganLayout } from "../../../layout/PelangganLayout"
+import { SortPelanggan } from "../../../components/Sort/Pelanggan"
 
 const MengelolaPelanggan: FC = () => {
   return (
     <AdminLayout>
-      <div>Mengelola pelanggan</div>
+      <PelangganLayout>
+        <SearchPelanggan />
+        <SortPelanggan />
+        <TablePelanggan />
+      </PelangganLayout>
     </AdminLayout>
   )
 }
