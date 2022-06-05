@@ -34,8 +34,6 @@ export const SavePelangganBaru = () => {
           const body = {
             ...pelanggan,
             pemasangan: new Date(pelanggan.pemasangan),
-            paket: +pelanggan.paket,
-            telepon: +pelanggan.telepon,
           }
 
           const save = new Promise(async (resolve, reject) => {
