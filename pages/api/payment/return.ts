@@ -13,6 +13,7 @@ export default async function handler(
   console.log(req.body)
   const admin = await prisma.adminUtama.findFirst()
   try {
+
     await fetch(process.env.API_URL! + "/api/v1/payment/notify", {
       method: "POST",
       headers: {
