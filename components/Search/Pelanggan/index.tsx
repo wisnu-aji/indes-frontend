@@ -8,7 +8,7 @@ export const SearchPelanggan: FC = () => {
   return (
     <div className={style.container}>
       <input
-        type="text"
+        type="search"
         value={query}
         onChange={(e) => {
           setQuery(e.target.value)
