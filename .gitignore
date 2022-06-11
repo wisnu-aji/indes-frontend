@@ -38,4 +38,4 @@ yarn-error.log*
 .env
 
 
-packag-log.json
+package-log.json
