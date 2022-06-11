@@ -75,7 +75,7 @@ export const SideBar: FC = () => {
   if (session.status === "loading" || session.status === "unauthenticated")
     return <></>
   const option = data.role === "admin-utama" ? adminUtamaOption : adminOption
-
+  
   return (
     <div className={style.container} ref={sideBar}>
       {option.map(({ name, url }) => {
