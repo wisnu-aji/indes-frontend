@@ -4,7 +4,7 @@ import { AdminLayout } from "../../../layout"
 const Tes: FC = () => {
   return (
     <AdminLayout>
-      <div>dicoba</div>
+      <div>tess</div>
     </AdminLayout>
   )
 }
