@@ -12,8 +12,8 @@ export const adminOption = [
     url: "/admin/mengelola-pelanggan",
   },
   {
-    name: "dicoba",
-    url: "/admin/dicoba",
+    name: "tes",
+    url: "/admin/tes",
   },
 ]
 export const adminUtamaOption = [

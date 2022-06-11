@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { AdminLayout } from "../../../layout"
 
-const Dicoba: FC = () => {
+const Tes: FC = () => {
   return (
     <AdminLayout>
       <div>dicoba</div>
@@ -10,4 +10,4 @@ const Dicoba: FC = () => {
 }
 
 
-export default Dicoba
+export default Tes
