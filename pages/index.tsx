@@ -1,66 +1,76 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { useState } from "react";
-import { Iklan } from "../components/Iklan";
-import Ombak from "../components/Ombak";
-import OmbakFooter from "../components/OmbakFooter";
-import style from "../styles/Home.module.css";
+import type { NextPage } from "next"
+import Head from "next/head"
+import Image from "next/image"
+import { useState } from "react"
+import { Footer } from "../components/Footer"
+import { Iklan } from "../components/Iklan"
+import Ombak from "../components/Ombak"
+import OmbakFooter from "../components/OmbakFooter"
+import style from "../styles/Home.module.css"
 
 export interface AdminType {
-  _id: number;
-  email: string;
-  nama: string;
+  _id: number
+  email: string
+  nama: string
 }
 
 export interface PaketType {
-  _id: number;
-  kecepatan: string;
-  harga: number;
+  _id: number
+  kecepatan: string
+  harga: number
 }
 export interface RiwayatPembayaran {
-  tanggal: Date;
-  jumlahPembayaran: number;
+  tanggal: Date
+  jumlahPembayaran: number
 }
 
 export interface PelangganType {
-  _id: number;
-  nama: string;
-  alamat: string;
-  telepon: number;
-  paket: number;
-  pemasangan: Date;
-  batasPembayaran: Date;
-  riwayatPembayaran: RiwayatPembayaran[];
+  _id: number
+  nama: string
+  alamat: string
+  telepon: number
+  paket: number
+  pemasangan: Date
+  batasPembayaran: Date
+  riwayatPembayaran: RiwayatPembayaran[]
 }
 
-export type User = Omit<PelangganType, "_id">;
+export type User = Omit<PelangganType, "_id">
 export interface IklanType {
-  _id: number;
-  nama_iklan: string;
-  expired: Date;
-  gambar: string;
+  _id: number
+  nama_iklan: string
+  expired: Date
+  gambar: string
 }
 
 const Home: NextPage = () => {
-  const [input, setInput] = useState<string>("");
-  const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
-  const [tidakDitemukan, setTidakDitemukan] = useState<boolean>(false);
+  const [input, setInput] = useState<string>("")
+  const [pelanggan, setPelanggan] = useState<PelangganType | null>(null)
+  const [tidakDitemukan, setTidakDitemukan] = useState<boolean>(false)
 
   const cari = async () => {
-    setTidakDitemukan(false);
-    const respon = await fetch(
-      "https://api.wisnuaji.my.id/api/v1/search/" + input
-    );
+    setTidakDitemukan(false)
+    const headers = new Headers()
+    headers.append("pragma", "no-cache")
+    headers.append("cache-control", "no-cache")
 
-    const hasil = await respon.json();
-    if (!hasil.message) {
-      setPelanggan(hasil as PelangganType);
-    } else {
-      setPelanggan(null);
-      setTidakDitemukan(true);
+    const payload = {
+      method: "GET",
+      headers,
     }
-  };
+    const respon = await fetch(
+      "https://api.wisnuaji.my.id/api/v1/search/" + input,
+      payload
+    )
+
+    const hasil = await respon.json()
+    if (!hasil.message) {
+      setPelanggan(hasil as PelangganType)
+    } else {
+      setPelanggan(null)
+      setTidakDitemukan(true)
+    }
+  }
 
   return (
     <div className={style.container}>
@@ -86,11 +96,11 @@ const Home: NextPage = () => {
             type="search"
             placeholder="masukkan id atau no telp"
             onChange={(e) => {
-              setInput(e.target.value);
+              setInput(e.target.value)
             }}
             onKeyDown={(e) => {
               if (e.key == "Enter") {
-                cari();
+                cari()
               }
             }}
           />
@@ -146,11 +156,11 @@ const Home: NextPage = () => {
       </div>
       <OmbakFooter />
       {/* footer */}
-      <footer>dszyryfutryte</footer>
+      <Footer />
 
       {/* akhir footer */}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
