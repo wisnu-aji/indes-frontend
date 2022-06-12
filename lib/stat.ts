@@ -21,7 +21,7 @@ export const stat = async () => {
       ok: boolean
       count: number
     }
-
+    console.log(telatBayar, sudahBayar)
     if (!telatBayar.ok || !sudahBayar.ok)
       throw new Error("Internal Server Error")
     return { telatBayar, sudahBayar }

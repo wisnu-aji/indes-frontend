@@ -1,12 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useContext } from "react"
+import { Pelanggan } from "../typings/component"
 
-export type Pelanggan = {
-  nama: string
-  alamat: string
-  telepon: string
-  paket: string
-  pemasangan: string
-}
 
 export type Status = "loading" | "success" | "error" | "idle"
 export type StatusPelanggan = null | 'sudah-bayar' | 'telat-bayar'

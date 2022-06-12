@@ -35,3 +35,5 @@ export const adminUtamaOption = [
     url: "/admin/mengelola-iklan",
   },
 ]
+
+export const limitPage = 15

@@ -1,0 +1,9 @@
+.container {
+  width: 90%;
+  display: flex;
+  gap: 1rem;
+}
+
+.container > button {
+  cursor: pointer;
+}

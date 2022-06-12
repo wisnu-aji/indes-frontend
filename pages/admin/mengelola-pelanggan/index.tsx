@@ -4,6 +4,7 @@ import { SearchPelanggan } from "../../../components/Search/Pelanggan"
 import { TablePelanggan } from "../../../components/Table/Pelanggan"
 import { PelangganLayout } from "../../../layout/PelangganLayout"
 import { SortPelanggan } from "../../../components/Sort/Pelanggan"
+import { NavigasiPelangganTable } from "../../../components/NavigasiPelangganTable"
 
 const MengelolaPelanggan: FC = () => {
   return (
@@ -12,6 +13,7 @@ const MengelolaPelanggan: FC = () => {
         <SearchPelanggan />
         <SortPelanggan />
         <TablePelanggan />
+        <NavigasiPelangganTable />
       </PelangganLayout>
     </AdminLayout>
   )

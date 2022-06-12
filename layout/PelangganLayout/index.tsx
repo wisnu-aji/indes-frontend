@@ -1,5 +1,6 @@
 import { FC, useState } from "react"
-import { Pelanggan, Status, StatusPelanggan } from "../../hooks/use-pelanggan"
+import { Status, StatusPelanggan } from "../../hooks/use-pelanggan"
+import type { Pelanggan } from "../../typings/component"
 import { PelangganContext } from "../../hooks/use-pelanggan"
 
 export const PelangganLayout: FC = ({ children }) => {
@@ -25,8 +26,10 @@ export const PelangganLayout: FC = ({ children }) => {
         statusPelanggan,
         setStatusPelanggan,
       }}
-    >
+    ><div id="pelanggan" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px'}}>
+
       {children}
+    </div>
     </PelangganContext.Provider>
   )
 }

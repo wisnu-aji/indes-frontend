@@ -1,0 +1,22 @@
+.container {
+  width: 90%;
+  display: flex;
+  gap: 10px;
+}
+
+
+.container > input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.container > button{
+  cursor: pointer;
+  box-shadow: 4px 6px rgb(50, 50, 50, 0.4);
+}
+.container > button:active {
+  box-shadow: 1px 3px rgb(50, 50, 50, 0.4);
+  transform: translate(3px, 3px);
+}
