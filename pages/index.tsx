@@ -2,6 +2,7 @@ import type { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
 import { useState } from "react"
+import { BatasPembayaran } from "../components/BatasPembayaran"
 import { Footer } from "../components/Footer"
 import { Iklan } from "../components/Iklan"
 import Ombak from "../components/Ombak"
@@ -71,6 +72,9 @@ const Home: NextPage = () => {
       setTidakDitemukan(true)
     }
   }
+  const tanggalPembayaran = pelanggan
+    ? new Date(pelanggan.batasPembayaran).toLocaleDateString().split("/")
+    : null
 
   return (
     <div className={style.container}>
@@ -119,10 +123,13 @@ const Home: NextPage = () => {
             </div>
 
             <div className={style.pelanggan_waktubayar}>
-              <h3>Tanggal Pembayaran</h3>
-              <div className={style.pelanggan_waktubayar_batas}>
-                {new Date(pelanggan.batasPembayaran).toLocaleDateString()}
-              </div>
+              <h3>Batas Pembayaran Selanjutnya</h3>
+              <BatasPembayaran
+                isLate={
+                  new Date(pelanggan.batasPembayaran).getTime() < Date.now()
+                }
+                tanggal={pelanggan.batasPembayaran}
+              />
               <h3>Tipe langganan</h3>
               <div className={style.pelanggan_waktubayar_paket}>
                 paket {pelanggan.paket}
