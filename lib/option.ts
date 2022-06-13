@@ -11,10 +11,7 @@ export const adminOption = [
     name: "Mengelola Pelanggan",
     url: "/admin/mengelola-pelanggan",
   },
-  {
-    name: "tes",
-    url: "/admin/tes",
-  },
+
 ]
 export const adminUtamaOption = [
   ...adminOption,
