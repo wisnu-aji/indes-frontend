@@ -1,5 +1,5 @@
-export const getToday = () => {
-  const today = new Date()
+export const getToday = (time?: string | Date) => {
+  const today = time ? new Date(time) : new Date()
   let [date, month, year] = today
     .toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })
     .split(" ")[0]

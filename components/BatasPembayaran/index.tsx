@@ -12,7 +12,7 @@ export const BatasPembayaran: FC<{ isLate: boolean, tanggal: Date }> = ({
   const tahun = tgl.getFullYear()
   return (
     <div className={style.container + " " + (isLate ? style.late : "")} >
-      {hari} {getBulan(bulan)} {tahun} 
+      {hari} {getBulan(bulan + 1)} {tahun}
     </div>
   )
 }

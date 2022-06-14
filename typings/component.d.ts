@@ -10,7 +10,7 @@ export type Role = "admin" | "admin-utama" | null
 export interface RiwayatPembayaran {
   metodePembayaran: string
   tanggalPembayaran: string
-  totalPembayaran: number
+  jumlahPembayaran: number
 }
 export interface Pelanggan {
   _id: string
@@ -19,7 +19,7 @@ export interface Pelanggan {
   alamat: string
   paket: number
   pemasangan: Date
-  batasPenagihan: Date
+  batasPembayaran: Date
   riwayatPembayaran: RiwayatPembayaran[]
 }
 export interface IndesPelangganListAPI {

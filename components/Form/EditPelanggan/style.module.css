@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  padding: 10px 0;
+  font-weight: 900;
+  font-size: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.form > span {
+  margin-bottom: 5px;
+  width: 130px;
+  display: inline-block;
+  text-transform: capitalize;
+  
+  text-align: left;
+}
+.form > span::after {
+  content: "*";
+  color: red;
+}
+
+.form > input {
+  font-size: 18px;
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+}
+
+.btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn__simpan {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 900;
+  transform: translate(0, -6px);
+  border-radius: 3px;
+  background-color: rgb(0, 238, 71);
+  box-shadow: 4px 6px rgb(50, 50, 50, 0.4);
+  cursor: pointer;
+}
+
+
+.btn__simpan:active {
+  box-shadow: 1px 3px rgb(50, 50, 50, 0.4);
+  transform: translate(3px, -3px);
+}
