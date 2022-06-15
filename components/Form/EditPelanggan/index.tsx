@@ -3,6 +3,7 @@ import { toast } from "react-toastify"
 import { dateToForm } from "../../../lib/date"
 import { getToday } from "../../../lib/getToday"
 import { Pelanggan } from "../../../typings/component"
+import { PilihPaket } from "../../PilihPaket"
 import style from "./style.module.css"
 
 export const EditPelanggan: FC<{ pelanggan: Pelanggan }> = ({ pelanggan }) => {
@@ -67,12 +68,10 @@ export const EditPelanggan: FC<{ pelanggan: Pelanggan }> = ({ pelanggan }) => {
       </div>
       <div className={style.form}>
         <span id="paket">paket</span>
-        <input
-          type="number"
-          id="paket"
-          value={dataPelanggan.paket}
-          onChange={(e) => {
-            handleChange("paket", e.target.value)
+        <PilihPaket
+          defaultValue={dataPelanggan.paket.toString()}
+          onSelected={(selected) => {
+            handleChange("paket", selected)
           }}
         />
       </div>

@@ -1,9 +1,8 @@
 import { FC } from "react"
 import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru"
 import { getToday } from "../../../lib/getToday"
+import { PilihPaket } from "../../PilihPaket"
 import style from "./style.module.css"
-
-
 
 export const PelangganBaru: FC = () => {
   const { pelanggan, setPelanggan } = usePelangganBaru()
@@ -56,14 +55,11 @@ export const PelangganBaru: FC = () => {
       </div>
       <div className={style.form}>
         <label id="paket">paket</label>
-        <input
-          type="number"
-          id="paket"
-          value={pelanggan.paket}
-          onChange={(e) => {
+        <PilihPaket
+          onSelected={(selected) => {
             setPelanggan({
               ...pelanggan,
-              paket: e.target.value,
+              paket: selected,
             })
           }}
         />
