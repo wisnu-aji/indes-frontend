@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Session } from "next-auth"
 import { useSession, signIn, signOut } from "next-auth/react"
 import React, { FC, useState } from "react"
 import { SessionWithRole } from "../../typings/component"
