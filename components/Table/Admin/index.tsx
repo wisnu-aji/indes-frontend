@@ -1,6 +1,9 @@
 import { FC, useEffect } from "react"
+import { toast } from "react-toastify"
 import { useAdmin } from "../../../hooks/use-admin"
+import { Modal } from "../../../layout/Modal"
 import { limitPage } from "../../../lib/option"
+import { EditAdminForm } from "../../Form/EditAdmin"
 import style from "./style.module.css"
 export const AdminTable: FC = () => {
   const { admin, setAdmin, query, page, setTotalPage } = useAdmin()
@@ -28,13 +31,40 @@ export const AdminTable: FC = () => {
           </tr>
         </thead>
         <tbody>
-          {admin.map((item) => (
-            <tr key={item._id}>
-              <td className={style.cell}>{item.name}</td>
-              <td className={style.cell}>{item.email}</td>
+          {admin.map((admin) => (
+            <tr key={admin._id}>
+              <td className={style.cell}>{admin.name}</td>
+              <td className={style.cell}>{admin.email}</td>
               <td className={style.cell}>
-                <button>Edit</button>
-                <button>Delete</button>
+                <Modal label="Edit">
+                  <EditAdminForm admin={admin} />
+                </Modal>
+                <Modal label="Hapus">
+                  <div>
+                    <p>Apakah anda yakin ingin menghapus data ini?</p>
+                    <button
+                      onClick={() => {
+                        const hapus = async () => {
+                          const response = await fetch("/api/admin/delete", {
+                            method: "POST",
+                            body: JSON.stringify(admin),
+                          })
+                          const data = await response.json()
+                          if (data.error) throw new Error(data.error)
+                          return data
+                        }
+
+                        toast.promise(hapus, {
+                          success: "Data berhasil dihapus",
+                          error: "Data gagal dihapus",
+                          pending: "Menghapus data",
+                        })
+                      }}
+                    >
+                      Hapus
+                    </button>
+                  </div>
+                </Modal>
               </td>
             </tr>
           ))}
