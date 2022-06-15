@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { FC, useState } from "react"
 import style from "./style.module.css"
 
@@ -20,7 +21,10 @@ export const Modal: FC<{ label: string; className?: string }> = ({
         <div className={style.show}>
           <div className={style.show__content}>
             <div className={style.show__content_header}>
-              <button onClick={() => setShow(false)}>X</button>
+              <button onClick={() => {
+                setShow(false)
+                Router.reload()
+                }}>X</button>
             </div>
             <div className={style.show__content_body}>{children}</div>
           </div>

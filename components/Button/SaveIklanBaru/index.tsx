@@ -1,15 +1,14 @@
 import { FC } from "react"
 import { toast } from "react-toastify"
-import { useAdminBaru } from "../../../hooks/use-admin-baru"
+import { useIklanBaru } from "../../../hooks/use-iklan-baru"
 import style from "./style.module.css"
 
-export const SaveAdminBaru: FC = () => {
-  const { adminBaru } = useAdminBaru()
+export const SaveIklanBaru: FC = () => {
+  const { iklanBaru } = useIklanBaru()
   const save = async() => {
-    if(!adminBaru.email || !adminBaru.name) throw new Error()
-    const response = await fetch('/api/admin/add', {
+    const response = await fetch('/api/iklan/add', {
       method: 'POST',
-      body: JSON.stringify(adminBaru)
+      body: JSON.stringify(iklanBaru)
     })
 
     const data = await response.json()

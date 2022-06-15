@@ -15,7 +15,9 @@ td.cell {
   padding: 10px 1rem 10px 1rem;
   overflow: hidden;
   white-space: nowrap;
-  max-width: 300px;
+  max-width: 200px;
+  /* add 3 dots */
+  text-overflow: ellipsis;
 }
 
 th.cell {
