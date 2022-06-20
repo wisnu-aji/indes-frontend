@@ -1,22 +1,22 @@
-import { FC, useState } from "react"
-import { toast } from "react-toastify"
-import { Pelanggan } from "../typings/component"
+import { FC, useState } from "react";
+import { toast } from "react-toastify";
+import { Pelanggan } from "../typings/component";
 
 export const HapusPelanggan: FC<{ pelanggan: Pelanggan }> = ({ pelanggan }) => {
-  const [terhapus, setTerhapus] = useState(false)
+  const [terhapus, setTerhapus] = useState(false);
   const hapus = async () => {
     const response = await fetch("/api/user/edit", {
       method: "POST",
       body: JSON.stringify(pelanggan),
-    })
+    });
 
-    const data = await response.json()
+    const data = await response.json();
     if (data.ok === false && data.message) {
-      throw new Error(data.message)
+      throw new Error(data.message);
     }
-    setTerhapus(true)
-    return data
-  }
+    setTerhapus(true);
+    return data;
+  };
   return (
     <div>
       {!terhapus && (
@@ -31,9 +31,9 @@ export const HapusPelanggan: FC<{ pelanggan: Pelanggan }> = ({ pelanggan }) => {
                   success: "Selesai menghapus",
                   pending: "menghapus data...",
                   error: "gagal menghapus data",
-                })
+                });
 
-                console.log(response)
+                console.log(response);
               }}
             >
               Ya
@@ -43,5 +43,5 @@ export const HapusPelanggan: FC<{ pelanggan: Pelanggan }> = ({ pelanggan }) => {
       )}
       {terhapus && <div>Berhasil menghapus, anda bisa menutup halaman ini</div>}
     </div>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 .container {
   display: flex;
   flex-direction: column;
@@ -8,15 +8,15 @@
 }
 .jumlah {
   font-size: 3rem;
-  font-family: Caveat, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-family: Caveat, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    sans-serif;
 }
 
 .bayar {
-  
   font-size: 2rem;
-  font-family: Caveat, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-family: Caveat, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    sans-serif;
 }
-
 
 .underline {
   /* make underline that bold */
@@ -27,13 +27,11 @@
 .green {
   /* make underline color green */
   color: rgb(0, 179, 0);
-
 }
 
 .blue {
   color: rgb(0, 192, 192);
 }
-
 
 @media only screen and (max-width: 600px) {
   .jumlah {

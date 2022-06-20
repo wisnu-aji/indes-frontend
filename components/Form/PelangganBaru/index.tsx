@@ -1,11 +1,11 @@
-import { FC } from "react"
-import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru"
-import { getToday } from "../../../lib/getToday"
-import { PilihPaket } from "../../PilihPaket"
-import style from "./style.module.css"
+import { FC } from "react";
+import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru";
+import { getToday } from "../../../lib/getToday";
+import { PilihPaket } from "../../PilihPaket";
+import style from "./style.module.css";
 
 export const PelangganBaru: FC = () => {
-  const { pelanggan, setPelanggan } = usePelangganBaru()
+  const { pelanggan, setPelanggan } = usePelangganBaru();
   return (
     <div className={style.container}>
       <div className={style.form}>
@@ -19,7 +19,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               nama: e.target.value,
-            })
+            });
           }}
         />
       </div>
@@ -34,7 +34,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               alamat: e.target.value,
-            })
+            });
           }}
         />
       </div>
@@ -49,7 +49,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               telepon: e.target.value,
-            })
+            });
           }}
         />
       </div>
@@ -60,7 +60,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               paket: selected,
-            })
+            });
           }}
         />
       </div>
@@ -75,11 +75,11 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               pemasangan: e.target.value,
-            })
+            });
           }}
           max={getToday()}
         />
       </div>
     </div>
-  )
-}
+  );
+};

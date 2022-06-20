@@ -1,20 +1,24 @@
-import { useSession } from "next-auth/react"
-import { FC } from "react"
-import { AdminLayout } from "../../../layout"
-import { SessionWithRole } from "../../../typings/component"
-import Error from "next/error"
-import Router from "next/router"
+import { useSession } from "next-auth/react";
+import { FC, useState } from "react";
+import { AdminLayout } from "../../../layout";
+import { PaketType, SessionWithRole } from "../../../typings/component";
+import Router from "next/router";
+import { PaketContext } from "../../../hooks/use-paket";
+import { PaketTable } from "../../../components/Table/Paket";
 const MengelolaPaket: FC = () => {
-  const sesion = useSession()
-  const data = sesion.data as SessionWithRole | null
+  const sesion = useSession();
+  const [paket, setPaket] = useState<PaketType[]>([]);
+  const data = sesion.data as SessionWithRole | null;
   if (data && data.role !== "admin-utama") {
-    Router.push("/admin")
+    Router.push("/admin");
   }
   return (
     <AdminLayout>
-      <div>Mengelola Paket</div>
+      <PaketContext.Provider value={{ paket, setPaket }}>
+        <PaketTable />
+      </PaketContext.Provider>
     </AdminLayout>
-  )
-}
+  );
+};
 
-export default MengelolaPaket
+export default MengelolaPaket;

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react"
+import { getSession } from "next-auth/react";
 
 export type Data = {
   _id: number;
@@ -13,10 +13,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Array<Data>>
 ) {
-
-
-  const session = await getSession({ req })
-  console.log(session)
+  const session = await getSession({ req });
+  console.log(session);
   res.status(200).json([
     {
       _id: 1,

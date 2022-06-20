@@ -1,13 +1,13 @@
-import { FC, useEffect } from "react"
-import { usePelanggan } from "../../../hooks/use-pelanggan"
-import { Modal } from "../../../layout/Modal"
-import { dateToIndonesian } from "../../../lib/date"
-import { limitPage } from "../../../lib/option"
-import { IndesPelangganListAPI, Pelanggan } from "../../../typings/component"
-import { BatasPembayaran } from "../../BatasPembayaran"
-import { EditPelanggan } from "../../Form/EditPelanggan"
-import { HapusPelanggan } from "../../HapusPelanggan"
-import style from "./style.module.css"
+import { FC, useEffect } from "react";
+import { usePelanggan } from "../../../hooks/use-pelanggan";
+import { Modal } from "../../../layout/Modal";
+import { dateToIndonesian } from "../../../lib/date";
+import { limitPage } from "../../../lib/option";
+import { IndesPelangganListAPI, Pelanggan } from "../../../typings/component";
+import { BatasPembayaran } from "../../BatasPembayaran";
+import { EditPelanggan } from "../../Form/EditPelanggan";
+import { HapusPelanggan } from "../../HapusPelanggan";
+import style from "./style.module.css";
 
 export const TablePelanggan: FC = () => {
   const {
@@ -22,7 +22,7 @@ export const TablePelanggan: FC = () => {
     setTotalPage,
     setStatusPelanggan,
     setQuery,
-  } = usePelanggan()
+  } = usePelanggan();
   const handleSubmit = async () => {
     try {
       const payload = {
@@ -30,29 +30,29 @@ export const TablePelanggan: FC = () => {
         limit: limitPage,
         sortBy: "nama",
         status: statusPelanggan,
-      }
+      };
 
       const response = await fetch("/api/user/list", {
         method: "POST",
         body: JSON.stringify(payload),
-      })
-      const data = (await response.json()) as IndesPelangganListAPI
-      setPelangganList(data.list)
-      setTotalPage(Math.ceil(data.total / limitPage))
+      });
+      const data = (await response.json()) as IndesPelangganListAPI;
+      setPelangganList(data.list);
+      setTotalPage(Math.ceil(data.total / limitPage));
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
   useEffect(() => {
-    handleSubmit()
+    handleSubmit();
 
     return () => {
-      setPelangganList([])
-      setQuery("")
-      setStatusPelanggan(null)
-      setPage(1)
-    }
-  }, [])
+      setPelangganList([]);
+      setQuery("");
+      setStatusPelanggan(null);
+      setPage(1);
+    };
+  }, []);
 
   return (
     <div className={style.container}>
@@ -124,7 +124,7 @@ export const TablePelanggan: FC = () => {
                                   {riwayat.metodePembayaran}
                                 </td>
                               </tr>
-                            )
+                            );
                           })}
                         </tbody>
                       </table>
@@ -139,7 +139,7 @@ export const TablePelanggan: FC = () => {
                     </Modal>
                   </td>
                 </tr>
-              )
+              );
             })}
         </tbody>
       </table>
@@ -147,5 +147,5 @@ export const TablePelanggan: FC = () => {
         <div className={style.nodata}>tidak ada data</div>
       )}
     </div>
-  )
-}
+  );
+};

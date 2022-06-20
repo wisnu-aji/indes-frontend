@@ -1,18 +1,18 @@
-import { useSession } from "next-auth/react"
-import Head from "next/head"
-import { FC } from "react"
-import { SessionWithRole } from "../../typings/component"
-import { Account } from "../Account"
-import style from "./style.module.css"
+import { useSession } from "next-auth/react";
+import Head from "next/head";
+import { FC } from "react";
+import { SessionWithRole } from "../../typings/component";
+import { Account } from "../Account";
+import style from "./style.module.css";
 
 export const Header: FC = () => {
-  const sesion = useSession()
-  const data = sesion.data as SessionWithRole | null
+  const sesion = useSession();
+  const data = sesion.data as SessionWithRole | null;
   const title = !data
     ? "Dashboard"
     : data.role === "admin-utama"
     ? "Admin Utama Dashboard"
-    : "Admin Dashboard"
+    : "Admin Dashboard";
   return (
     <div className={style.container}>
       <Head>
@@ -21,5 +21,5 @@ export const Header: FC = () => {
       <div className={style.title}>{title}</div>
       <Account />
     </div>
-  )
-}
+  );
+};

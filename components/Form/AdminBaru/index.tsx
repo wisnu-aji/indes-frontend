@@ -1,17 +1,17 @@
-import { FC } from "react"
-import { AdminBaru, useAdminBaru } from "../../../hooks/use-admin-baru"
-import { AdminType } from "../../../typings/component"
-import style from "./style.module.css"
+import { FC } from "react";
+import { AdminBaru, useAdminBaru } from "../../../hooks/use-admin-baru";
+import { AdminType } from "../../../typings/component";
+import style from "./style.module.css";
 
 export const AdminBaruForm: FC = () => {
-  const { adminBaru, setAdminBaru } = useAdminBaru()
+  const { adminBaru, setAdminBaru } = useAdminBaru();
 
   const handleOnChange = (key: keyof Omit<AdminType, "_id">, input: string) => {
     setAdminBaru({
       ...adminBaru,
       [key]: input,
-    })
-  }
+    });
+  };
   return (
     <div className={style.form}>
       <span>Nama</span>
@@ -27,5 +27,5 @@ export const AdminBaruForm: FC = () => {
         onChange={(e) => handleOnChange("email", e.target.value)}
       />
     </div>
-  )
-}
+  );
+};

@@ -1,6 +1,6 @@
-import NextAuth from "next-auth"
-import GoogleProvider from "next-auth/providers/google"
-import { prisma } from "../../../prisma/connection"
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import { prisma } from "../../../prisma/connection";
 
 export default NextAuth({
   // adapter: PrismaAdapter(prisma),
@@ -10,43 +10,43 @@ export default NextAuth({
       if (user.email) {
         const isExist = await prisma.adminUtama.findFirst({
           where: { email: user.email },
-        })
-        if (isExist) return true
+        });
+        if (isExist) return true;
         const isExist2 = await prisma.admin.findFirst({
           where: { email: user.email },
-        })
-        if (isExist2) return true
+        });
+        if (isExist2) return true;
       }
-      return "/admin?error=true"
+      return "/admin?error=true";
     },
     async jwt({ token }) {
       if (token.email && !token.role) {
         const isAdminUtama = await prisma.adminUtama.findFirst({
           where: { email: token.email },
-        })
+        });
 
         if (isAdminUtama) {
-          token.role = "admin-utama"
-          token.name = isAdminUtama.name
+          token.role = "admin-utama";
+          token.name = isAdminUtama.name;
         } else {
           const isAdmin = await prisma.admin.findFirst({
             where: { email: token.email },
-          })
+          });
           if (isAdmin) {
-            token.role = "admin"
-            token.name = isAdmin.name
+            token.role = "admin";
+            token.name = isAdmin.name;
           }
         }
       }
-      return token
+      return token;
     },
     async session({ session, user, token }) {
       if (token?.role && token?.name) {
-        session.role = token.role
-        session.user!.name = token?.name
+        session.role = token.role;
+        session.user!.name = token?.name;
       }
 
-      return session
+      return session;
     },
   },
   providers: [
@@ -55,4 +55,4 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET!,
     }),
   ],
-})
+});

@@ -19,7 +19,7 @@
   width: 130px;
   display: inline-block;
   text-transform: capitalize;
-  
+
   text-align: left;
 }
 .form > span::after {
@@ -33,7 +33,6 @@
   padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 3px;
-
 }
 
 .btn {
@@ -53,7 +52,6 @@
   box-shadow: 4px 6px rgb(50, 50, 50, 0.4);
   cursor: pointer;
 }
-
 
 .btn__simpan:active {
   box-shadow: 1px 3px rgb(50, 50, 50, 0.4);

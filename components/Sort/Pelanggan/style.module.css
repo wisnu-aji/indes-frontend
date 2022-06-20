@@ -1,7 +1,7 @@
 .container {
   display: flex;
   padding: 5px 0;
-  gap:10px;
+  gap: 10px;
   width: 90%;
 }
 
@@ -14,7 +14,6 @@
   text-transform: capitalize;
 }
 
-
 .container div:active {
   box-shadow: 1px 3px rgb(50, 50, 50, 0.4);
   transform: translate(3px, 3px);
@@ -22,13 +21,11 @@
 
 .container span {
   padding: 5px;
-
 }
 .active {
   background-color: rgb(153, 255, 179);
 }
 
 .inactive {
-  
   background-color: rgb(214, 214, 214);
 }

@@ -25,7 +25,6 @@
   padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 3px;
-
 }
 .save {
   margin-top: 20px;
@@ -44,7 +43,6 @@
   cursor: pointer;
 }
 
-
 .btn:active {
   box-shadow: 1px 3px rgb(50, 50, 50, 0.4);
   transform: translate(3px, -3px);
@@ -54,4 +52,3 @@
     width: 100%;
   }
 }
-

@@ -8,7 +8,6 @@
 
 .container > table {
   border-collapse: collapse;
-  
 }
 td.cell {
   border-bottom: 1px solid #ccc;
@@ -16,6 +15,7 @@ td.cell {
   overflow: hidden;
   white-space: nowrap;
   max-width: 300px;
+  text-align: center;
 }
 
 th.cell {

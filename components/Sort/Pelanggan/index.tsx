@@ -1,10 +1,10 @@
-import { FC, useEffect } from "react"
-import { StatusPelanggan, usePelanggan } from "../../../hooks/use-pelanggan"
-import { limitPage } from "../../../lib/option"
-import { IndesPelangganListAPI } from "../../../typings/component"
-import style from "./style.module.css"
+import { FC, useEffect } from "react";
+import { StatusPelanggan, usePelanggan } from "../../../hooks/use-pelanggan";
+import { limitPage } from "../../../lib/option";
+import { IndesPelangganListAPI } from "../../../typings/component";
+import style from "./style.module.css";
 
-const statusList: StatusPelanggan[] = [null, "sudah-bayar", "telat-bayar"]
+const statusList: StatusPelanggan[] = [null, "sudah-bayar", "telat-bayar"];
 
 export const SortPelanggan: FC = () => {
   const {
@@ -14,10 +14,10 @@ export const SortPelanggan: FC = () => {
     query,
     setPelangganList,
     setTotalPage,
-  } = usePelanggan()
+  } = usePelanggan();
 
   useEffect(() => {
-    setStatus("loading")
+    setStatus("loading");
 
     // represent loading on change
     const payload = {
@@ -26,23 +26,23 @@ export const SortPelanggan: FC = () => {
       sortBy: "nama",
       status: statusPelanggan,
       query,
-    }
+    };
     fetch("/api/user/list", {
       method: "POST",
       body: JSON.stringify(payload),
     })
       .then((data) => data.json())
       .then((data) => {
-        const { list, total } = data as IndesPelangganListAPI
-        setPelangganList(data.list)
-        setTotalPage(Math.ceil(data.total / limitPage))
-        setStatus('success')
+        const { list, total } = data as IndesPelangganListAPI;
+        setPelangganList(data.list);
+        setTotalPage(Math.ceil(data.total / limitPage));
+        setStatus("success");
       })
       .catch(() => {
-        setStatus('error')
-      })
+        setStatus("error");
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [statusPelanggan])
+  }, [statusPelanggan]);
 
   return (
     <div className={style.container}>
@@ -58,8 +58,8 @@ export const SortPelanggan: FC = () => {
           >
             {value ? value.split("-").join(" ") : "Semua"}
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};

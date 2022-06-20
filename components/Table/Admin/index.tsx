@@ -1,25 +1,25 @@
-import { FC, useEffect } from "react"
-import { toast } from "react-toastify"
-import { useAdmin } from "../../../hooks/use-admin"
-import { Modal } from "../../../layout/Modal"
-import { limitPage } from "../../../lib/option"
-import { EditAdminForm } from "../../Form/EditAdmin"
-import style from "./style.module.css"
+import { FC, useEffect } from "react";
+import { toast } from "react-toastify";
+import { useAdmin } from "../../../hooks/use-admin";
+import { Modal } from "../../../layout/Modal";
+import { limitPage } from "../../../lib/option";
+import { EditAdminForm } from "../../Form/EditAdmin";
+import style from "./style.module.css";
 export const AdminTable: FC = () => {
-  const { admin, setAdmin, query, page, setTotalPage } = useAdmin()
+  const { admin, setAdmin, query, page, setTotalPage } = useAdmin();
 
   useEffect(() => {
-    const payload = { query, page, limit: limitPage }
+    const payload = { query, page, limit: limitPage };
     fetch("/api/admin/list", {
       method: "POST",
       body: JSON.stringify(payload),
     })
       .then((data) => data.json())
       .then((data) => {
-        setAdmin(data.list)
-        setTotalPage(Math.ceil(data.total / limitPage))
-      })
-  }, [])
+        setAdmin(data.list);
+        setTotalPage(Math.ceil(data.total / limitPage));
+      });
+  }, []);
   return (
     <div className={style.container}>
       <table>
@@ -48,17 +48,17 @@ export const AdminTable: FC = () => {
                           const response = await fetch("/api/admin/delete", {
                             method: "POST",
                             body: JSON.stringify(admin),
-                          })
-                          const data = await response.json()
-                          if (data.error) throw new Error(data.error)
-                          return data
-                        }
+                          });
+                          const data = await response.json();
+                          if (data.error) throw new Error(data.error);
+                          return data;
+                        };
 
                         toast.promise(hapus, {
                           success: "Data berhasil dihapus",
                           error: "Data gagal dihapus",
                           pending: "Menghapus data",
-                        })
+                        });
                       }}
                     >
                       Hapus
@@ -71,5 +71,5 @@ export const AdminTable: FC = () => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};

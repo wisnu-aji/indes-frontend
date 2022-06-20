@@ -11,8 +11,7 @@ export const adminOption = [
     name: "Mengelola Pelanggan",
     url: "/admin/mengelola-pelanggan",
   },
-
-]
+];
 export const adminUtamaOption = [
   ...adminOption,
   {
@@ -31,6 +30,14 @@ export const adminUtamaOption = [
     name: "Mengelola Iklan",
     url: "/admin/mengelola-iklan",
   },
-]
+  {
+    name: "Menambahkan paket",
+    url: "/admin/menambahkan-paket",
+  },
+  {
+    name: "Mengelola Paket",
+    url: "/admin/mengelola-paket",
+  },
+];
 
-export const limitPage = 15
+export const limitPage = 15;

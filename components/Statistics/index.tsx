@@ -1,41 +1,47 @@
-import Image from "next/image"
-import Router from "next/router"
-import { FC, useEffect, useState } from "react"
-import { stat } from "../../lib/stat"
-import style from "./style.module.css"
+import Image from "next/image";
+import Router from "next/router";
+import { FC, useEffect, useState } from "react";
+import { stat } from "../../lib/stat";
+import style from "./style.module.css";
 
 export const Statistics: FC = () => {
-  const [sudahBayar, setSudahBayar] = useState<number>(0)
-  const [telatBayar, setTelatBayar] = useState<number>(0)
+  const [sudahBayar, setSudahBayar] = useState<number>(0);
+  const [telatBayar, setTelatBayar] = useState<number>(0);
 
   const getStat = () => {
     stat().then((data) => {
-      console.log(JSON.stringify(data))
+      console.log(JSON.stringify(data));
       if (data) {
-        setSudahBayar(data.sudahBayar.count)
-        setTelatBayar(data.telatBayar.count)
+        setSudahBayar(data.sudahBayar.count);
+        setTelatBayar(data.telatBayar.count);
       }
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    getStat()
+    getStat();
     const interval = setInterval(() => {
-      getStat()
-    }, 1000 * 60)
+      getStat();
+    }, 1000 * 60);
     return () => {
-      setSudahBayar(0)
-      setTelatBayar(0)
-      clearInterval(interval)
-    }
-  }, [])
+      setSudahBayar(0);
+      setTelatBayar(0);
+      clearInterval(interval);
+    };
+  }, []);
   const go = () => {
-    Router.push("/admin/mengelola-pelanggan")
-  }
+    Router.push("/admin/mengelola-pelanggan");
+  };
   return (
     <div className={style.container}>
       <div>
-        <Image src={"/family.webp"} width={400} height={250} alt="keluarga" className={style.keluarga} />
+        <Image
+          src={"/family.webp"}
+          width={400}
+          height={250}
+          alt="keluarga"
+          className={style.keluarga}
+        />
       </div>
       <div className={style.jumlah}>
         <span className={style.underline + " " + style.blue} onClick={go}>
@@ -53,5 +59,5 @@ export const Statistics: FC = () => {
         sudah melakukan pembayaran
       </div>
     </div>
-  )
-}
+  );
+};

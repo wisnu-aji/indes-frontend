@@ -1,11 +1,11 @@
 import { createContext, Dispatch, SetStateAction, useContext } from "react";
 import { IklanType } from "../typings/component";
 
-type Iklan = Omit<IklanType, '_id'>
+type Iklan = Omit<IklanType, "_id">;
 
 interface IklanBaru {
-  iklanBaru: Iklan
-  setIklanBaru: Dispatch<SetStateAction<Iklan>>
+  iklanBaru: Iklan;
+  setIklanBaru: Dispatch<SetStateAction<Iklan>>;
 }
 
 export const IklanBaruContext = createContext<IklanBaru>({
@@ -15,9 +15,6 @@ export const IklanBaruContext = createContext<IklanBaru>({
     expired: new Date(),
   },
   setIklanBaru: () => {},
-})
+});
 
-export const useIklanBaru = () => useContext(IklanBaruContext)
-
-
-    
+export const useIklanBaru = () => useContext(IklanBaruContext);

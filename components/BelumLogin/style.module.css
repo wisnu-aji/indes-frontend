@@ -8,7 +8,6 @@
 }
 
 .login {
-
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -37,7 +36,6 @@
 @media only screen and (max-width: 600px) {
   .container {
     flex-direction: column;
-    
   }
   .login {
     align-items: center;

@@ -9,8 +9,8 @@
 .link {
   padding: 15px 0;
   cursor: pointer;
-  margin:2px;
-  color:rgb(141, 141, 141);
+  margin: 2px;
+  color: rgb(141, 141, 141);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
   margin: 5px;
@@ -33,14 +33,14 @@
 .linkActive {
   border-radius: 5px;
   background-color: rgb(78, 78, 78);
-  color:#fff;
+  color: #fff;
   /* box-shadow: 4px 6px rgb(50 50 50 / 40%); */
 }
 .linkActive:hover {
   border-radius: 5px;
   background-color: rgb(78, 78, 78);
-  
-  color:#fff;
+
+  color: #fff;
 }
 
 .link:active {
@@ -67,17 +67,16 @@
     background-color: #fff;
     transition: transform 1s;
     /* create box shadow */
-    box-shadow: 3px 1px 5px 0 rgba(0,0,0,0.38);
+    box-shadow: 3px 1px 5px 0 rgba(0, 0, 0, 0.38);
     padding-top: 20px;
-    
   }
   .buttonToShow {
-    box-shadow: 3px 1px 5px 0 rgba(0,0,0,0.58);
+    box-shadow: 3px 1px 5px 0 rgba(0, 0, 0, 0.58);
     visibility: visible;
     position: absolute;
     padding: 5px;
     width: 30px;
-    
+
     height: 30px;
     top: 40%;
     right: 1px;
@@ -86,6 +85,5 @@
     border-left: 1px solid #fff;
     background-color: #fff;
     border-radius: 0 100% 100% 0;
-
   }
 }

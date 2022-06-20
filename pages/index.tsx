@@ -1,48 +1,46 @@
-import type { NextPage } from "next"
-import Head from "next/head"
-import Image from "next/image"
-import { useState } from "react"
-import { BatasPembayaran } from "../components/BatasPembayaran"
-import { Footer } from "../components/Footer"
-import { Iklan } from "../components/Iklan"
-import Ombak from "../components/Ombak"
-import OmbakFooter from "../components/OmbakFooter"
-import style from "../styles/Home.module.css"
-import { PelangganType } from "../typings/component"
-
-
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useState } from "react";
+import { BatasPembayaran } from "../components/BatasPembayaran";
+import { Footer } from "../components/Footer";
+import { Iklan } from "../components/Iklan";
+import Ombak from "../components/Ombak";
+import OmbakFooter from "../components/OmbakFooter";
+import style from "../styles/Home.module.css";
+import { PelangganType } from "../typings/component";
 
 const Home: NextPage = () => {
-  const [input, setInput] = useState<string>("")
-  const [pelanggan, setPelanggan] = useState<PelangganType | null>(null)
-  const [tidakDitemukan, setTidakDitemukan] = useState<boolean>(false)
+  const [input, setInput] = useState<string>("");
+  const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
+  const [tidakDitemukan, setTidakDitemukan] = useState<boolean>(false);
 
   const cari = async () => {
-    setTidakDitemukan(false)
-    const headers = new Headers()
-    headers.append("pragma", "no-cache")
-    headers.append("cache-control", "no-cache")
+    setTidakDitemukan(false);
+    const headers = new Headers();
+    headers.append("pragma", "no-cache");
+    headers.append("cache-control", "no-cache");
 
     const payload = {
       method: "GET",
       headers,
-    }
+    };
     const respon = await fetch(
       "https://api.wisnuaji.my.id/api/v1/search/" + input,
       payload
-    )
+    );
 
-    const hasil = await respon.json()
+    const hasil = await respon.json();
     if (!hasil.message) {
-      setPelanggan(hasil as PelangganType)
+      setPelanggan(hasil as PelangganType);
     } else {
-      setPelanggan(null)
-      setTidakDitemukan(true)
+      setPelanggan(null);
+      setTidakDitemukan(true);
     }
-  }
+  };
   const tanggalPembayaran = pelanggan
     ? new Date(pelanggan.batasPembayaran).toLocaleDateString().split("/")
-    : null
+    : null;
 
   return (
     <div className={style.container}>
@@ -68,11 +66,11 @@ const Home: NextPage = () => {
             type="search"
             placeholder="masukkan id atau no telp"
             onChange={(e) => {
-              setInput(e.target.value)
+              setInput(e.target.value);
             }}
             onKeyDown={(e) => {
               if (e.key == "Enter") {
-                cari()
+                cari();
               }
             }}
           />
@@ -135,7 +133,7 @@ const Home: NextPage = () => {
 
       {/* akhir footer */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

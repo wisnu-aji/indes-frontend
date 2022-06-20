@@ -1,15 +1,15 @@
-import { AdminType } from "../typings/component"
-import { createContext, Dispatch, SetStateAction, useContext } from "react"
+import { AdminType } from "../typings/component";
+import { createContext, Dispatch, SetStateAction, useContext } from "react";
 
 export interface Admin {
-  admin: AdminType[]
-  page: number
-  totalPage: number
-  query: string
-  setAdmin: Dispatch<SetStateAction<AdminType[]>>
-  setPage: Dispatch<SetStateAction<number>>
-  setTotalPage: Dispatch<SetStateAction<number>>
-  setQuery: Dispatch<SetStateAction<string>>
+  admin: AdminType[];
+  page: number;
+  totalPage: number;
+  query: string;
+  setAdmin: Dispatch<SetStateAction<AdminType[]>>;
+  setPage: Dispatch<SetStateAction<number>>;
+  setTotalPage: Dispatch<SetStateAction<number>>;
+  setQuery: Dispatch<SetStateAction<string>>;
 }
 export const AdminContext = createContext<Admin>({
   admin: [],
@@ -20,6 +20,6 @@ export const AdminContext = createContext<Admin>({
   setPage: () => {},
   setTotalPage: () => {},
   setQuery: () => {},
-})
+});
 
-export const useAdmin = () => useContext(AdminContext)
+export const useAdmin = () => useContext(AdminContext);

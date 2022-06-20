@@ -1,25 +1,25 @@
-import { FC, useEffect } from "react"
-import { toast } from "react-toastify"
-import { useIklan } from "../../../hooks/use-iklan"
-import { Modal } from "../../../layout/Modal"
-import { dateToIndonesian } from "../../../lib/date"
-import { limitPage } from "../../../lib/option"
-import { EditIklanForm } from "../../Form/EditIklan"
-import style from "./style.module.css"
+import { FC, useEffect } from "react";
+import { toast } from "react-toastify";
+import { useIklan } from "../../../hooks/use-iklan";
+import { Modal } from "../../../layout/Modal";
+import { dateToIndonesian } from "../../../lib/date";
+import { limitPage } from "../../../lib/option";
+import { EditIklanForm } from "../../Form/EditIklan";
+import style from "./style.module.css";
 export const IklanTable: FC = () => {
-  const { iklan, setIklan } = useIklan()
+  const { iklan, setIklan } = useIklan();
 
   useEffect(() => {
-    const payload = { query: "", page: 1, limit: limitPage }
+    const payload = { query: "", page: 1, limit: limitPage };
     fetch("/api/iklan/list", {
       method: "POST",
       body: JSON.stringify(payload),
     })
       .then((data) => data.json())
       .then((data) => {
-        setIklan(data.list)
-      })
-  }, [])
+        setIklan(data.list);
+      });
+  }, []);
   return (
     <div className={style.container}>
       <table>
@@ -50,17 +50,17 @@ export const IklanTable: FC = () => {
                           const response = await fetch("/api/iklan/delete", {
                             method: "POST",
                             body: JSON.stringify(iklan),
-                          })
-                          const data = await response.json()
-                          if (data.error) throw new Error(data.error)
-                          return data
-                        }
+                          });
+                          const data = await response.json();
+                          if (data.error) throw new Error(data.error);
+                          return data;
+                        };
 
                         toast.promise(hapus, {
                           success: "Data berhasil dihapus",
                           error: "Data gagal dihapus",
                           pending: "Menghapus data",
-                        })
+                        });
                       }}
                     >
                       Hapus
@@ -73,5 +73,5 @@ export const IklanTable: FC = () => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};

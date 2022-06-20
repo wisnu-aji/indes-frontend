@@ -1,10 +1,10 @@
-import { FC, MouseEventHandler, useEffect, useRef, useState } from "react"
-import style from "./style.module.css"
-import { useSession } from "next-auth/react"
-import { adminOption, adminUtamaOption } from "../../lib/option"
-import { SessionWithRole } from "../../typings/component"
-import Link from "next/link"
-import { useRouter } from "next/router"
+import { FC, MouseEventHandler, useEffect, useRef, useState } from "react";
+import style from "./style.module.css";
+import { useSession } from "next-auth/react";
+import { adminOption, adminUtamaOption } from "../../lib/option";
+import { SessionWithRole } from "../../typings/component";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Close: FC = () => (
   <svg
@@ -19,7 +19,7 @@ const Close: FC = () => (
       clipRule="evenodd"
     />
   </svg>
-)
+);
 
 const Open: FC = () => (
   <svg
@@ -39,43 +39,43 @@ const Open: FC = () => (
       clipRule="evenodd"
     />
   </svg>
-)
+);
 export const SideBar: FC = () => {
-  const session = useSession()
-  const router = useRouter()
-  const sideBar = useRef<null | HTMLDivElement>(null)
-  const [show, setShow] = useState(false)
-  const data = session.data as SessionWithRole
+  const session = useSession();
+  const router = useRouter();
+  const sideBar = useRef<null | HTMLDivElement>(null);
+  const [show, setShow] = useState(false);
+  const data = session.data as SessionWithRole;
   const handleShow = (close?: boolean) => {
     if (sideBar.current) {
       if (close) {
-        setShow(false)
-        sideBar.current.classList.add(style.hide)
-        return
+        setShow(false);
+        sideBar.current.classList.add(style.hide);
+        return;
       }
 
       if (!show) {
-        sideBar.current.classList.remove(style.hide)
+        sideBar.current.classList.remove(style.hide);
       } else {
-        sideBar.current.classList.add(style.hide)
+        sideBar.current.classList.add(style.hide);
       }
-      setShow((v) => !v)
+      setShow((v) => !v);
     }
-  }
+  };
 
   useEffect(() => {
     if (sideBar.current) {
       if (sideBar.current) {
-        setShow(false)
-        sideBar.current.classList.add(style.hide)
+        setShow(false);
+        sideBar.current.classList.add(style.hide);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   if (session.status === "loading" || session.status === "unauthenticated")
-    return <></>
-  const option = data.role === "admin-utama" ? adminUtamaOption : adminOption
-  
+    return <></>;
+  const option = data.role === "admin-utama" ? adminUtamaOption : adminOption;
+
   return (
     <div className={style.container} ref={sideBar}>
       {option.map(({ name, url }) => {
@@ -86,16 +86,16 @@ export const SideBar: FC = () => {
               style.link + ` ${router.pathname === url ? style.linkActive : ""}`
             }
             onClick={() => {
-              router.push(url)
+              router.push(url);
             }}
           >
             <div className={style.linkButton}>{name}</div>
           </div>
-        )
+        );
       })}
       <div className={style.buttonToShow} onClick={() => handleShow()}>
         {show ? <Close /> : <Open />}
       </div>
     </div>
-  )
-}
+  );
+};

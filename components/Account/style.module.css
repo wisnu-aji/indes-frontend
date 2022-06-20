@@ -1,5 +1,3 @@
-
-
 .container {
   border: 1px solid rgb(114, 114, 114);
   background-color: white;
@@ -28,7 +26,7 @@
   border-radius: 5px;
   font-weight: 900;
   color: aliceblue;
-  padding: 5px ;
+  padding: 5px;
 }
 
 button.login {
@@ -39,18 +37,15 @@ button.login {
   border-radius: 5px;
   font-weight: 900;
   color: rgb(0, 0, 0);
-  padding: 5px ;
+  padding: 5px;
 }
 .userName {
-  
   width: 70px;
   text-overflow: ellipsis;
   overflow: hidden;
-  
 }
 .userPicture {
   width: 30px;
   height: 30px;
   border-radius: 100%;
 }
-

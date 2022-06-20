@@ -1,19 +1,19 @@
-import { createContext, useContext } from "react"
+import { createContext, useContext } from "react";
 export interface PelangganBaruContext {
   pelanggan: {
-    nama: string
-    alamat: string
-    telepon: string
-    paket: string
-    pemasangan: string
-  }
+    nama: string;
+    alamat: string;
+    telepon: string;
+    paket: string;
+    pemasangan: string;
+  };
   setPelanggan: (pelanggan: {
-    nama: string
-    alamat: string
-    telepon: string
-    paket: string
-    pemasangan: string
-  }) => void
+    nama: string;
+    alamat: string;
+    telepon: string;
+    paket: string;
+    pemasangan: string;
+  }) => void;
 }
 export const PelangganContext = createContext<PelangganBaruContext>({
   pelanggan: {
@@ -24,6 +24,6 @@ export const PelangganContext = createContext<PelangganBaruContext>({
     pemasangan: "",
   },
   setPelanggan: () => {},
-})
+});
 
-export const usePelangganBaru = () => useContext(PelangganContext)
+export const usePelangganBaru = () => useContext(PelangganContext);
