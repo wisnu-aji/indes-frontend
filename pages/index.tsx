@@ -54,7 +54,7 @@ const Home: NextPage = () => {
         <div className={style.logo}>
           <Image src="/logo.png" width={60} height={60} alt="logo" />
         </div>
-        <h1>Cek Tagihan Pembayaran</h1>
+        <h1>Tagihan Pembayaran</h1>
       </header>
       <Ombak />
       {/* ---------------------- */}
