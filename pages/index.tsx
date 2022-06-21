@@ -127,6 +127,7 @@ const Home: NextPage = () => {
         </section>
         {/* akhir iklan */}
       </div>
+      <div className={style.filler} />
       <OmbakFooter />
       {/* footer */}
       <Footer />

@@ -2,6 +2,8 @@
   min-height: 100vh;
   background-color: rgb(235, 235, 235);
   text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -127,4 +129,8 @@ button.pelanggan_tombolbayar_bayar {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.filler {
+  flex-grow: 1;
+  background-color: #a2d9ff;
 }
