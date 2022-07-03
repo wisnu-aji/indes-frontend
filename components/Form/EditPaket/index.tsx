@@ -35,7 +35,7 @@ export const EditPaketForm: FC<{ paket: PaketType }> = ({ paket }) => {
           value={data.kecepatan}
           onChange={(e) => handleOnChange("kecepatan", e.target.value)}
         />
-        <span>Expired</span>
+        <span>Harga</span>
         <input
           type="number"
           placeholder="100000"
