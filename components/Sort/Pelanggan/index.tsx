@@ -14,6 +14,7 @@ export const SortPelanggan: FC = () => {
     query,
     setPelangganList,
     setTotalPage,
+    range
   } = usePelanggan();
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export const SortPelanggan: FC = () => {
       sortBy: "nama",
       status: statusPelanggan,
       query,
+      ...range
     };
     fetch("/api/user/list", {
       method: "POST",

@@ -12,6 +12,7 @@ export const NavigasiPelangganTable: FC = () => {
     setPelangganList,
     statusPelanggan,
     setTotalPage,
+    range
   } = usePelanggan();
   const handleSubmit = async (page: number) => {
     try {
@@ -20,6 +21,7 @@ export const NavigasiPelangganTable: FC = () => {
         limit: limitPage,
         sortBy: "nama",
         status: statusPelanggan,
+        ...range
       };
 
       const response = await fetch("/api/user/list", {

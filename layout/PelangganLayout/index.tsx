@@ -1,15 +1,19 @@
-import { FC, useState } from "react";
-import { Status, StatusPelanggan } from "../../hooks/use-pelanggan";
-import type { Pelanggan } from "../../typings/component";
-import { PelangganContext } from "../../hooks/use-pelanggan";
+import { FC, useState } from "react"
+import { Status, StatusPelanggan } from "../../hooks/use-pelanggan"
+import type { Pelanggan } from "../../typings/component"
+import { PelangganContext } from "../../hooks/use-pelanggan"
 
 export const PelangganLayout: FC = ({ children }) => {
-  const [pelangganList, setPelangganList] = useState<Pelanggan[]>([]);
-  const [page, setPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(1);
-  const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [statusPelanggan, setStatusPelanggan] = useState<StatusPelanggan>(null);
+  const [pelangganList, setPelangganList] = useState<Pelanggan[]>([])
+  const [page, setPage] = useState(1)
+  const [totalPage, setTotalPage] = useState(1)
+  const [query, setQuery] = useState("")
+  const [status, setStatus] = useState<Status>("idle")
+  const [statusPelanggan, setStatusPelanggan] = useState<StatusPelanggan>(null)
+  const [range, setRange] = useState<{ from: null | Date; to: null | Date }>({
+    from: null,
+    to: null,
+  })
   return (
     <PelangganContext.Provider
       value={{
@@ -25,6 +29,8 @@ export const PelangganLayout: FC = ({ children }) => {
         setStatus,
         statusPelanggan,
         setStatusPelanggan,
+        range,
+        setRange,
       }}
     >
       <div
@@ -39,5 +45,5 @@ export const PelangganLayout: FC = ({ children }) => {
         {children}
       </div>
     </PelangganContext.Provider>
-  );
-};
+  )
+}
