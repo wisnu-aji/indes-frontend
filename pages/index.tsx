@@ -121,6 +121,14 @@ const Home: NextPage = () => {
         )}
         {/* akhir inputan id */}
         {/* --------------------------- */}
+        {/*awal inputar mendaftar pelanggan*/}
+        <div className={style.klikdisini}></div>
+          <p>
+            <a href="/form">belum mendaftar klik Disini</a> 
+          </p>
+        
+        {/*akhir inputar mendaftar pelanggan*/}
+        {/* --------------------------- */}
         {/* awal iklan */}
         <section>
           <Iklan />
