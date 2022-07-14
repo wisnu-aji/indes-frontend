@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { BatasPembayaran } from "../components/BatasPembayaran";
 import { Footer } from "../components/Footer";
@@ -121,13 +122,13 @@ const Home: NextPage = () => {
         )}
         {/* akhir inputan id */}
         {/* --------------------------- */}
-        {/*awal inputar mendaftar pelanggan*/}
-        <div className={style.klikdisini}></div>
+        {/*awal inputan mendaftar pelanggan*/}
+        <div style={{padding:"0 20px"}}>
           <p>
-            <a href="/form">belum mendaftar klik Disini</a> 
+            <Link href="/form">belum mendaftar? klik Disini</Link> 
           </p>
-        
-        {/*akhir inputar mendaftar pelanggan*/}
+        </div>
+        {/*akhir inputan mendaftar pelanggan*/}
         {/* --------------------------- */}
         {/* awal iklan */}
         <section>
