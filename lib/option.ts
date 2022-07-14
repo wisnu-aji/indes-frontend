@@ -13,7 +13,7 @@ export const adminOption = [
   },
   {
     name: "Registrasi Pelanggan",
-    url: "/admin/Register_pelanggan",
+    url: "/admin/Registrasi_pelanggan",
   },
 ];
 export const adminUtamaOption = [
