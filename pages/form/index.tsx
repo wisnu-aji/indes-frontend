@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import style from './style.module.css'
-
+import style from './style.module.css';
+import Ombak from "../../components/Ombak";
+import OmbakFooter from "../../components/OmbakFooter";
 
 const Form: FC = () => {
   return (
@@ -16,7 +17,7 @@ const Form: FC = () => {
         </p>
         <p>
           <label> Masukkan nomer telepon : </label>
-          <input type="text" />
+          <input type="number" />
         </p>
 
         <select>
@@ -26,6 +27,7 @@ const Form: FC = () => {
           <option>1mbps/10.000</option>
           <option>2mbps/20.000</option>
         </select>
+   
         <input type="submit" value="Daftar" />
       </form>
     </div>
