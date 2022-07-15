@@ -39,7 +39,7 @@ export const adminUtamaOption = [
     url: "/admin/mengelola-paket",
   },
   {
-    nama:"form pendaftaran",
+    name:"form pendaftaran",
     url:"/admin/form-pendaftarn",
   }
 ];
