@@ -40,7 +40,7 @@ export const adminUtamaOption = [
   },
   {
     name:"form pendaftaran",
-    url:"/admin/form-pendaftarn",
+    url:"/admin/form-pendaftaran",
   }
 ];
 
