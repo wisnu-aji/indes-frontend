@@ -11,7 +11,7 @@ const MenambahkanPelanggan: FC = () => {
     nama: "",
     alamat: "",
     telepon: "",
-    paket: "",,
+    paket: "",
     pemasangan:getToday(),
   });
   return (
