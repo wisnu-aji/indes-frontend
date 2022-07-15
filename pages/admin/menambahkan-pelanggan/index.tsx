@@ -23,7 +23,8 @@ const MenambahkanPelanggan: FC = () => {
         <SavePelangganBaru />
       </PelangganContext.Provider>
     </AdminLayout>
-    </password>
+    </PelangganContext.provider>
+
   );
 };
 
