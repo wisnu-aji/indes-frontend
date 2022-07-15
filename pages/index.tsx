@@ -75,8 +75,23 @@ const Home: NextPage = () => {
               }
             }}
           />
+          
           <button onClick={cari}>Cari</button>
         </section>
+        <div className={style.input}>
+          <input
+            type="password"
+            placeholder="masukkan passwort"
+            onChange={(e) => {
+              // setInput(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                cari();
+              }
+            }}
+            />
+            </div>
         {pelanggan && (
           <div className={style.pelanggan}>
             <div className={style.pelanggan_info}>

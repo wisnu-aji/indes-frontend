@@ -18,9 +18,9 @@ const MenambahkanPaket: FC = () => {
   return (
     <AdminLayout>
       <PaketBaruContext.Provider value={{ paketBaru, setPaketBaru }}>
-<h1>
-  tes
-</h1>
+        <h1>
+            tes
+        </h1>
       </PaketBaruContext.Provider>
     </AdminLayout>
   );
