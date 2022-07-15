@@ -5,6 +5,7 @@ import { Title } from "../../../components/Title";
 import { PelangganContext } from "../../../hooks/use-pelanggan-baru";
 import { AdminLayout } from "../../../layout";
 import { getToday } from "../../../lib/getToday";
+import { password } from "../../../hooks/use-password";
 
 const MenambahkanPelanggan: FC = () => {
   const [pelanggan, setPelanggan] = useState({
@@ -22,6 +23,7 @@ const MenambahkanPelanggan: FC = () => {
         <SavePelangganBaru />
       </PelangganContext.Provider>
     </AdminLayout>
+    </password>
   );
 };
 
