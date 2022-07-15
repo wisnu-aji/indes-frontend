@@ -13,7 +13,8 @@ const MenambahkanPelanggan: FC = () => {
     alamat: "",
     telepon: "",
     paket: "",
-    pemasangan: getToday(),
+    pemasangan:,
+    paswort: "" getToday(),
   });
   return (
     <AdminLayout>
@@ -23,8 +24,6 @@ const MenambahkanPelanggan: FC = () => {
         <SavePelangganBaru />
       </PelangganContext.Provider>
     </AdminLayout>
-    </PelangganContext.provider>
-
   );
 };
 
