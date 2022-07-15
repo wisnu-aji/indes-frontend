@@ -11,10 +11,6 @@ export const adminOption = [
     name: "Mengelola Pelanggan",
     url: "/admin/mengelola-pelanggan",
   },
-  {
-    name: "Registrasi Pelanggan",
-    url: "/admin/registrasi-pelanggan",
-  },
 ];
 export const adminUtamaOption = [
   ...adminOption,
@@ -42,6 +38,10 @@ export const adminUtamaOption = [
     name: "Mengelola Paket",
     url: "/admin/mengelola-paket",
   },
+  {
+    nama:"form pendaftaran",
+    url:"/admin/form-pendaftarn",
+  }
 ];
 
 export const limitPage = 15;
