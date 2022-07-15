@@ -12,8 +12,8 @@ const MenambahkanPelanggan: FC = () => {
     alamat: "",
     telepon: "",
     paket: "",
-    pemasangan:,
     paswort: "" getToday(),
+    pemasangan:,
   });
   return (
     <AdminLayout>
