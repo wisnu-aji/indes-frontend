@@ -13,7 +13,6 @@ const MenambahkanPelanggan: FC = () => {
     telepon: "",
     paket: "",,
     pemasangan:getToday(),
-    password: "" ,
   });
   return (
     <AdminLayout>
