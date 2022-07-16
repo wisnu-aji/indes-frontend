@@ -1,28 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "mongodb"
   url      = env("MONGODB")
-  
 }
 
-generator client {
-  provider        = "prisma-client-js"
+type PelangganRiwayatPembayaran {
+  jumlahPembayaran  Int
+  metodePembayaran  String
+  /// Multiple data types found: String: 18.2%, DateTime (Date): 81.8% out of 11 sampled entries
+  tanggalPembayaran Json
 }
 
 model Admin {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  email String
-  refresh_token String?  @db.String
-  access_token  String?  @db.String
-  expires_at    Int?
-
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique(map: "email_1")
+  name  String
 }
-model AdminUtama {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  email String
-  refresh_token String?  @db.String
-  access_token  String?  @db.String
-  expires_at    Int?
 
+model AdminUtama {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique(map: "email_1")
+  name  String
+}
+
+model iklan {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  v          Int      @map("__v")
+  expired    DateTime @db.Date
+  gambar     String   @unique(map: "gambar_1")
+  nama_iklan String
+}
+
+model paket {
+  id        Int    @id @map("_id")
+  v         Int    @map("__v")
+  harga     Int
+  kecepatan String
+}
+
+model pelanggan {
+  id                String                       @id @map("_id")
+  v                 Int                          @map("__v")
+  alamat            String
+  batasPembayaran   DateTime                     @db.Date
+  nama              String
+  paket             Int
+  pemasangan        DateTime                     @db.Date
+  riwayatPembayaran PelangganRiwayatPembayaran[]
+  telepon           String                       @unique(map: "telepon_1")
+}
+model FormPelanggan {
+  id                String                       @id @default(auto()) @map("_id") @db.ObjectId
+  alamat            String
+  nama              String
+  paket             Int
+  telepon           String                       @unique(map: "telepon_1")
 }

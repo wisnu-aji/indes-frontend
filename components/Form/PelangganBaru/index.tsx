@@ -1,11 +1,21 @@
-import { FC } from "react";
-import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru";
-import { getToday } from "../../../lib/getToday";
-import { PilihPaket } from "../../PilihPaket";
-import style from "./style.module.css";
+import { FormPelanggan } from "@prisma/client"
+import { FC, useEffect } from "react"
+import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru"
+import { getToday } from "../../../lib/getToday"
+import { PilihPaket } from "../../PilihPaket"
+import style from "./style.module.css"
 
-export const PelangganBaru: FC = () => {
-  const { pelanggan, setPelanggan } = usePelangganBaru();
+export const PelangganBaru: FC<{ pelanggan?: FormPelanggan }> = (props) => {
+  const { pelanggan, setPelanggan } = usePelangganBaru()
+  useEffect(() => {
+    if (props.pelanggan) {
+      setPelanggan({
+        ...props.pelanggan,
+        pemasangan: getToday(),
+        paket: props.pelanggan.paket.toString(),
+      })
+    }
+  }, [props.pelanggan])
   return (
     <div className={style.container}>
       <div className={style.form}>
@@ -19,7 +29,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               nama: e.target.value,
-            });
+            })
           }}
         />
       </div>
@@ -34,7 +44,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               alamat: e.target.value,
-            });
+            })
           }}
         />
       </div>
@@ -49,7 +59,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               telepon: e.target.value,
-            });
+            })
           }}
         />
       </div>
@@ -60,7 +70,7 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               paket: selected,
-            });
+            })
           }}
         />
       </div>
@@ -75,11 +85,11 @@ export const PelangganBaru: FC = () => {
             setPelanggan({
               ...pelanggan,
               pemasangan: e.target.value,
-            });
+            })
           }}
           max={getToday()}
         />
       </div>
     </div>
-  );
-};
+  )
+}
