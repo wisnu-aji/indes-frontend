@@ -41,6 +41,10 @@ export const adminUtamaOption = [
   {
     name:"form pendaftaran",
     url:"/admin/form-pendaftaran",
+  },
+  {
+    name:"tentang",
+    url:"/admin/tentang"
   }
 ];
 
