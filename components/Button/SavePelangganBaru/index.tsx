@@ -1,16 +1,17 @@
-import { rejects } from "assert";
-import { toast } from "react-toastify";
-import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru";
-import style from "./style.module.css";
+import { rejects } from "assert"
+import { toast } from "react-toastify"
+import { usePelangganBaru } from "../../../hooks/use-pelanggan-baru"
+import { hash } from "../../../lib/hash"
+import style from "./style.module.css"
 
 function getFormData(object: any) {
-  const formData = new FormData();
-  Object.keys(object).forEach((key) => formData.append(key, object[key]));
-  return formData;
+  const formData = new FormData()
+  Object.keys(object).forEach((key) => formData.append(key, object[key]))
+  return formData
 }
 
 export const SavePelangganBaru = () => {
-  const { pelanggan, setPelanggan } = usePelangganBaru();
+  const { pelanggan, setPelanggan } = usePelangganBaru()
 
   return (
     <div className={style.container}>
@@ -21,9 +22,10 @@ export const SavePelangganBaru = () => {
             nama: "",
             alamat: "",
             telepon: "",
+            password: "",
             paket: "",
             pemasangan: "",
-          });
+          })
         }}
       >
         Clear
@@ -35,34 +37,47 @@ export const SavePelangganBaru = () => {
             ...pelanggan,
             pemasangan: new Date(pelanggan.pemasangan),
             paket: +pelanggan.paket,
-          };
+          }
 
           const save = new Promise(async (resolve, reject) => {
             try {
+              if (
+                !body.nama ||
+                !body.alamat ||
+                !body.telepon ||
+                !body.password ||
+                !body.paket ||
+                !body.pemasangan
+              ) {
+                throw new Error("Data tidak lengkap")
+              }
               const response = await fetch("/api/user/add", {
                 method: "POST",
-                body: JSON.stringify(body),
-              });
-              const data = await response.json();
-              console.log(data);
-              if (data.error) reject(data.error);
-              resolve(data);
+                body: JSON.stringify({
+                  ...body,
+                  password: hash(body.password),
+                }),
+              })
+              const data = await response.json()
+              console.log(data)
+              if (data.error) reject(data.error)
+              resolve(data)
             } catch (error) {
-              reject(error);
+              reject(error)
             }
-          });
+          })
 
           const response = await toast.promise(save, {
             success: "Selesai menyimpan",
             pending: "menyimpan data...",
             error: "gagal menyimpan data",
-          });
+          })
 
-          console.log(response);
+          console.log(response)
         }}
       >
         Save
       </button>
     </div>
-  );
-};
+  )
+}

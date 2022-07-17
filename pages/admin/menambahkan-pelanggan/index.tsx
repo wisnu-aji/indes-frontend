@@ -10,6 +10,7 @@ const MenambahkanPelanggan: FC = () => {
   const [pelanggan, setPelanggan] = useState({
     nama: "",
     alamat: "",
+    password: "",
     telepon: "",
     paket: "",
     pemasangan:getToday(),

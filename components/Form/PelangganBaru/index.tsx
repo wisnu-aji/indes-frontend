@@ -34,6 +34,21 @@ export const PelangganBaru: FC<{ pelanggan?: FormPelanggan }> = (props) => {
         />
       </div>
       <div className={style.form}>
+        <label id="nama">Password</label>
+        <input
+          type="password"
+          id="nama"
+          placeholder="password"
+          value={pelanggan.password}
+          onChange={(e) => {
+            setPelanggan({
+              ...pelanggan,
+              password: e.target.value,
+            })
+          }}
+        />
+      </div>
+      <div className={style.form}>
         <label id="alamat">alamat</label>
         <input
           type="text"
