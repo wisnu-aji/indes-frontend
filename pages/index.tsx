@@ -8,6 +8,7 @@ import { Footer } from "../components/Footer";
 import { Iklan } from "../components/Iklan";
 import Ombak from "../components/Ombak";
 import OmbakFooter from "../components/OmbakFooter";
+import { hash } from "../lib/hash";
 import style from "../styles/Home.module.css";
 import { PelangganType } from "../typings/component";
 
@@ -15,13 +16,13 @@ const Home: NextPage = () => {
   const [input, setInput] = useState<string>("");
   const [pelanggan, setPelanggan] = useState<PelangganType | null>(null);
   const [tidakDitemukan, setTidakDitemukan] = useState<boolean>(false);
-
+  const [password, setPassword] = useState<string>('');
   const cari = async () => {
     setTidakDitemukan(false);
     const headers = new Headers();
     headers.append("pragma", "no-cache");
     headers.append("cache-control", "no-cache");
-
+    headers.append('Authorization', `Bearer ${password}`);
     const payload = {
       method: "GET",
       headers,
@@ -83,7 +84,7 @@ const Home: NextPage = () => {
             type="password"
             placeholder="masukkan passwort"
             onChange={(e) => {
-              // setInput(e.target.value);
+              setPassword(hash(e.target.value));
             }}
             onKeyDown={(e) => {
               if (e.key == "Enter") {

@@ -43,10 +43,10 @@ model paket {
 
 model pelanggan {
   id                String                       @id @map("_id")
-  v                 Int                          @map("__v")
   alamat            String
   batasPembayaran   DateTime                     @db.Date
   nama              String
+  password          String
   paket             Int
   pemasangan        DateTime                     @db.Date
   riwayatPembayaran PelangganRiwayatPembayaran[]
@@ -56,6 +56,7 @@ model FormPelanggan {
   id                String                       @id @default(auto()) @map("_id") @db.ObjectId
   alamat            String
   nama              String
+  password          String
   paket             Int
   telepon           String                       @unique(map: "telepon_1")
 }

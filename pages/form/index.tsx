@@ -2,6 +2,7 @@ import { FormPelanggan } from "@prisma/client"
 import React, { FC, useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import { PilihPaket } from "../../components/PilihPaket"
+import { hash } from "../../lib/hash"
 import { PaketType } from "../../typings/component"
 import style from "./style.module.css"
 
@@ -12,24 +13,29 @@ const Form: FC = () => {
     nama: "",
     alamat: "",
     telepon: "",
+    password: "",
     paket: 1,
   })
-  const [paket, setPaket] = useState<PaketType[]>([])
-  useEffect(() => {
-    fetch("https://api.wisnuaji.my.id/api/v1/paket")
-      .then((data) => data.json())
-      .then((data) => {
-        setPaket(data)
-      })
-  }, [])
+  const [lihatPassword, setLihatPassword] = useState<"text" | "password">(
+    "password"
+  )
+  const [password, setPassword] = useState<string>("")
 
   const handleChange = (key: keyof FormDataType, value: string | number) => {
+    if (key === "password") {
+      setPassword(value as string)
+      setData({ ...data, password: hash(value as string) })
+      return
+    }
     setData({
       ...data,
       [key]: value,
     })
   }
   const save = async () => {
+    if (!data.nama || !data.alamat || !data.telepon || !data.password) {
+      throw new Error("Data tidak lengkap")
+    }
     const response = await fetch("/api/form", {
       method: "POST",
       body: JSON.stringify(data),
@@ -62,8 +68,24 @@ const Form: FC = () => {
             onChange={(e) => handleChange("telepon", e.target.value)}
           />
         </p>
+        <p>
+          <label> Masukkan password : </label>
+          <input
+            type={lihatPassword}
+            onChange={(e) => handleChange("password", hash(e.target.value))}
+          />
+          <span
+            onClick={() =>
+              setLihatPassword((text) =>
+                text === "text" ? "password" : "text"
+              )
+            }
+            style={{ cursor: "pointer" }}
+          >
+            Lihat
+          </span>
+        </p>
 
-        
         <PilihPaket
           onSelected={(selected) => {
             handleChange("paket", +selected)
