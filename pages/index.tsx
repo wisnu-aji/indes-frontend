@@ -64,7 +64,7 @@ const Home: NextPage = () => {
       {/* awal inputan id */}
       <div className={style.content}>
         <section className={style.input}>
-          <input
+            <input
             type="search"
             placeholder="masukkan id atau no telp"
             onChange={(e) => {
@@ -75,9 +75,9 @@ const Home: NextPage = () => {
                 cari();
               }
             }}
-          />
+            />
           
-          <button onClick={cari}>Cari</button>
+          <button onClick={cari}>Buka Data</button>
         </section>
         <div className={style.input}>
           <input
