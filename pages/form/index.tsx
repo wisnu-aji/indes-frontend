@@ -106,7 +106,7 @@ const Form: FC = () => {
           Daftar
         </button>
       </div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </div>
   )
 }
