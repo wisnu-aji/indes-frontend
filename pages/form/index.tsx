@@ -46,42 +46,43 @@ const Form: FC = () => {
   }
   return (
     <div className={style.container}>
+      <h1>Form Pendaftaran</h1>
       <div>
         <p>
           <label> Nama : </label>
           <input
             type="text"
             onChange={(e) => handleChange("nama", e.target.value)}
-          />
+            />
         </p>
         <p>
           <label> Alamat : </label>
           <input
             type="text"
             onChange={(e) => handleChange("alamat", e.target.value)}
-          />
+            />
         </p>
         <p>
           <label> Masukkan nomer telepon : </label>
           <input
             type="number"
             onChange={(e) => handleChange("telepon", e.target.value)}
-          />
+            />
         </p>
         <p>
           <label> Masukkan password : </label>
           <input
             type={lihatPassword}
             onChange={(e) => handleChange("password", hash(e.target.value))}
-          />
+            />
           <span
             onClick={() =>
               setLihatPassword((text) =>
-                text === "text" ? "password" : "text"
+              text === "text" ? "password" : "text"
               )
             }
             style={{ cursor: "pointer" }}
-          >
+            >
             Lihat
           </span>
         </p>
@@ -90,7 +91,7 @@ const Form: FC = () => {
           onSelected={(selected) => {
             handleChange("paket", +selected)
           }}
-        />
+          />
 
         <button
           onClick={async () => {
@@ -99,14 +100,15 @@ const Form: FC = () => {
               pending: "menyimpan data...",
               error: "gagal menyimpan data",
             })
-
+            
             console.log(response)
           }}
-        >
+          >
           Daftar
         </button>
       </div>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      <h3>jika dalam 3 hari belum di ACC, mohon menghubungi nomer di halaman depan</h3>
     </div>
   )
 }
