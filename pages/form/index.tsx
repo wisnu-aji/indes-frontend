@@ -46,7 +46,8 @@ const Form: FC = () => {
   }
   return (
     <div className={style.container}>
-      <h1>Form Pendaftaran</h1>
+      <div className={style.kataatas}>
+      <h1>Form Pendaftaran</h1></div>
       <div>
         <p>
           <label> Nama : </label>
@@ -108,7 +109,10 @@ const Form: FC = () => {
         </button>
       </div>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <h3>jika dalam 3 hari belum di ACC, mohon menghubungi nomer di halaman depan</h3>
+      <br></br>
+      <br></br><div className={style.katabawah}>
+        <h3>jika dalam 3 hari belum di ACC, mohon menghubungi nomer di halaman depan</h3>
+        </div>
     </div>
   )
 }

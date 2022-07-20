@@ -4,3 +4,13 @@
     background-color: #a2d9ff;
     min-height: 100vh;
 }
+.kataatas {
+    text-align: center;
+    text-shadow: 100px;
+    background-color: #b4d1e6;
+}
+.katabawah {
+    text-align: center;
+    color: aqua;
+    background-color: red;
+}
