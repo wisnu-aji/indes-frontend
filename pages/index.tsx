@@ -141,7 +141,7 @@ const Home: NextPage = () => {
         {/* akhir inputan id */}
         {/* --------------------------- */}
         {/*awal inputan mendaftar pelanggan*/}
-        <div style={{padding:"0 20px"}}>
+        <div className={style.klikdisini}>
           <p>
             <Link href="/form">belum mendaftar? klik Disini</Link> 
           </p>

@@ -110,9 +110,9 @@ const Form: FC = () => {
       </div>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <br></br>
-      <br></br><div className={style.katabawah}>
+      {/* <br></br><div className={style.katabawah}>
         <h3>jika dalam 3 hari belum di ACC, mohon menghubungi nomer di halaman depan</h3>
-        </div>
+        </div> */}
     </div>
   )
 }

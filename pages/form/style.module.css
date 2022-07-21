@@ -3,6 +3,7 @@
     flex-direction: column;
     background-color: #a2d9ff;
     min-height: 100vh;
+    padding-left: 12px;
 }
 .kataatas {
     text-align: center;
@@ -13,4 +14,5 @@
     text-align: center;
     color: aqua;
     background-color: red;
+    margin: 25px;
 }
