@@ -77,7 +77,6 @@ const Home: NextPage = () => {
             }}
             />
           
-          <button onClick={cari}>Buka Data</button>
         </section>
         <div className={style.input}>
           <input
@@ -93,6 +92,9 @@ const Home: NextPage = () => {
             }}
             />
             </div>
+              <div className={style.tombolbukadata}>
+                <button onClick={cari}>Buka Data</button>
+              </div>
         {pelanggan && (
           <div className={style.pelanggan}>
             <div className={style.pelanggan_info}>

@@ -66,7 +66,7 @@ export const TablePelanggan: FC = () => {
             <th className={style.cell}>Pemasangan</th>
             <th className={style.cell}>Batas Pembayaran</th>
             <th className={style.cell}>Riwayat</th>
-            <th className={style.cell}>Manage</th>
+            <th className={style.cell}>Pilihan</th>
           </tr>
         </thead>
         <tbody>

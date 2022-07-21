@@ -133,7 +133,7 @@ export const PelangganBaruForm: FC<{ pelanggan: FormPelanggan }> = (props) => {
             })
           }}
         >
-          Simpan
+          Terima
         </button>
         <button
           className={style.btn__remove}
@@ -155,7 +155,7 @@ export const PelangganBaruForm: FC<{ pelanggan: FormPelanggan }> = (props) => {
             }, 3000)
           }}
         >
-          Hapus
+          Tolak
         </button>
       </div>
     </div>
